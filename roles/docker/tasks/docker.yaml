@@ -1,0 +1,21 @@
+---
+- name: "Install Docker via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - docker.io
+     - docker-compose
+
+- name: Disable userland proxy
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+    mode: 644
+    owner: root
+
+- name: Enable and restart Docker daemon
+  service:
+    name: docker
+    state: restarted
+    enabled: yes

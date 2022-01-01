@@ -1,0 +1,32 @@
+---
+- name: "prepare vms for kmlabs-k8s-cluster"
+  hosts: all
+  handlers:
+    - name: "netplanapply"
+      command: netplan apply
+      async: 45
+      poll: 0
+
+    - name: "restartkubelet"
+      systemd: 
+        name: kubelet
+        state: restarted
+
+  tasks:
+    - name: "do apt stuff"
+      import_tasks: tasks/apt.yaml
+
+    - name: "disable cloudinit"
+      import_tasks: tasks/disable-cloudinit.yaml
+
+    - name: "remove snap"
+      import_tasks: tasks/remove-snap.yaml
+
+    - name: "clean motd"
+      import_tasks: tasks/clean-motd.yaml
+
+    - name: "fix dns"
+      import_tasks: tasks/fix-dns-resolution.yaml
+
+    - name: "setup networking"
+      import_tasks: tasks/static-networking.yaml

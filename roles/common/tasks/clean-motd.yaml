@@ -1,0 +1,13 @@
+---
+- name: clean motd
+  file:
+    state: file
+    path: /etc/update-motd.d/{{ item }}
+    owner: root
+    group: root
+    mode: "0000"
+  with_items:
+    - 10-help-text
+    - 50-landscape-sysinfo
+    - 50-motd-news
+    - 91-release-upgrade

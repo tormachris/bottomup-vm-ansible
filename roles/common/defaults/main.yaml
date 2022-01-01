@@ -1,0 +1,7 @@
+---
+# defaults file for timedatectl
+timedatectl_timeservers: ['noc-a.sch.bme.hu', 'noc-b.sch.bme.hu']
+
+timedatectl_timeservers_fallback: ['time.bme.hu']
+
+timedatectl_timezone: 'Europe/Budapest'

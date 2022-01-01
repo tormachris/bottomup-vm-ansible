@@ -1,0 +1,7 @@
+---
+- name: "Add service user with docker group membership"
+  ansible.builtin.user:
+    name: service-user
+    comment: Service user
+    groups: docker
+    append: yes

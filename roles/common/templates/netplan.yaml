@@ -1,0 +1,10 @@
+# {{ansible_managed}}
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens192:
+      dhcp4: true
+      dhcp4-overrides:
+        use-routes: false
+      gateway4: {{default_gateway}}

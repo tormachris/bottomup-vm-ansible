@@ -1,0 +1,40 @@
+---
+- name: Disable password authentication
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: 'PasswordAuthentication yes'
+    replace: 'PasswordAuthentication no'
+
+- name: Disable root authentication
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '#PermitRootLogin prohibit-password'
+    replace: 'PermitRootLogin no'
+
+- name: Disable X11 forwarding
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: 'X11Forwarding yes'
+    replace: 'X11Forwarding no'
+
+- name: Explicitly only listen on ipv4
+  replace:
+    path: /etc/ssh/sshd_config
+    regexp: '#AddressFamily any'
+    replace: 'AddressFamily inet'
+
+- name: Check if AllowUsers is defined
+  lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    regexp: "^AllowUsers"
+  check_mode: true
+  changed_when: false
+  register: checkallowusers
+
+- name: Define AllowUsers if undefined
+  lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    line: "AllowUsers tormakris ansible service-user"
+  when: checkallowusers.found == 0

@@ -1,0 +1,15 @@
+---
+- name: "Install Apache via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - apache2
+
+# TODO: Felmasolni a templatelt konfigokat es bekapcsolni oket
+
+- name: Enable and restart Apache2 daemon
+  service:
+    name: apache2
+    state: restarted
+    enabled: yes

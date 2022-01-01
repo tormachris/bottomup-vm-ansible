@@ -1,0 +1,13 @@
+---
+- name: disable cloudinit
+  copy:
+    content: ""
+    dest: /etc/cloud/cloud-init.disabled
+    force: no
+
+- name: disable network autoconfig
+  copy:
+    content: "network: {config: disabled}"
+    dest: /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    force: no
+

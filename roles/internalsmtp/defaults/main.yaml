@@ -1,0 +1,4 @@
+---
+postfix_relayhost: 'smtp.stargate.internal'
+
+external_domain: 'kmlabz.com'

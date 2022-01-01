@@ -1,0 +1,37 @@
+---
+- name: "Remove Ubuntu bloatware"
+  apt: 
+    state: absent
+    name: ubutu-server
+    autoremove: yes
+
+- name: "Update machine"
+  apt:
+    update_cache: yes
+    upgrade: yes
+    autoclean: yes
+    autoremove: yes
+
+- name: "Install my favourite applications"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - tmux
+     - htop
+     - dnsutils
+     - needrestart
+     - curl
+     - wget
+     - netcat-openbsd
+     - tree
+     - net-tools
+     - nano
+     - psmisc
+     - python3
+     - python3-venv
+     - strace
+     - ifstat
+     - tcpdump
+     - xxd
+     - git
