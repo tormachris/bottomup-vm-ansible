@@ -1,0 +1,13 @@
+---
+- name: "Install MariaDB via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - mariadb
+
+- name: Enable and restart MariaDB daemon
+  service:
+    name: mariadb
+    state: restarted
+    enabled: yes

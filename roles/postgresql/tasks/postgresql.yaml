@@ -1,0 +1,13 @@
+---
+- name: "Install PostgreSQL via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - postgresql
+
+- name: Enable and restart PostgreSQL daemon
+  service:
+    name: postgresql
+    state: restarted
+    enabled: yes
