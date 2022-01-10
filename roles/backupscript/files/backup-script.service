@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup application data
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /opt/backupscript.sh
+
+[Install]
+WantedBy=backup.target

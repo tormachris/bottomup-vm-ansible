@@ -19,3 +19,10 @@
     name: docker
     state: restarted
     enabled: yes
+
+- name: Copy docker-compose.yml to target
+  copy:
+    src: "{{ dockercompose_yml_name }}"
+    dest: /home/service-user/docker-compose.yml
+    mode: 600
+    owner: service-user
