@@ -20,6 +20,13 @@
     state: restarted
     enabled: yes
 
+- name: "Add service user to docker group"
+  ansible.builtin.user:
+    name: service-user
+    comment: Service user
+    groups: docker
+    append: yes
+
 - name: Copy docker-compose.yml to target
   copy:
     src: "{{ dockercompose_yml_name }}"

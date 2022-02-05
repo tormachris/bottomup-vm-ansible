@@ -1,0 +1,11 @@
+---
+- name: "Add service user"
+  ansible.builtin.user:
+    name: service-user
+    comment: Service user
+
+- name: "Update authorized_keys of tormakris"
+  ansible.posix.authorized_key:
+    user: tormakris
+    state: present
+    key: https://static.tormakristof.eu/ssh.keys
