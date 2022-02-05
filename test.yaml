@@ -4,3 +4,10 @@
   roles:
     - test
     - docker
+    - mariadb
+    - postgresql
+    - backupscript
+    - internalsmtp
+    - smtpgateway
+    - webgateway
+    - webserver
