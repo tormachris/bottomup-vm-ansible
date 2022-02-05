@@ -1,0 +1,11 @@
+---
+- include_tasks: static-networking.yaml
+- include_tasks: apt.yaml
+- include_tasks: clean-motd.yaml
+- include_tasks: remove-snap.yaml
+- include_tasks: disable-cloudinit.yaml
+- include_tasks: firewalld.yaml
+- include_tasks: service-user.yaml
+- include_tasks: ssh-security-settings.yaml
+- include_tasks: ssh-security-settings.yaml
+- include_tasks: timesync.yaml
