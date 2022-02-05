@@ -8,7 +8,7 @@
 - name: "Update machine"
   apt:
     update_cache: yes
-    upgrade: yes
+    upgrade: "yes"
     autoclean: yes
     autoremove: yes
 

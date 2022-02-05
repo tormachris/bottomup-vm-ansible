@@ -18,7 +18,7 @@
     dest: /etc/postfix/main.cf
 
 - name: Build /etc/mailname
-  command: hostname --fqdn > /etc/mailname
+  shell: hostname --fqdn > /etc/mailname
 
 - name: Build hashtable of SASL creds
   command: postmap /etc/postfix/sasl_passwd
