@@ -2,13 +2,9 @@
 all:
   vars:
     ansible_become: true
-    ansible_user: ansible
-  hosts:
-    kube-master-luna:
-      legit_uplink:
-        interface: enp1s0
-        gateway: 192.168.100.1
-        address: 192.168.100.10
-      legit_cluster_network:
-        interface: enp8s0
-        address: 192.168.8.10
+    ansible_user: tormakris
+  children:
+    woolsey:
+      hosts:
+        testhost:
+          ansible_host: 192.168.69.102

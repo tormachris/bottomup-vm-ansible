@@ -1,0 +1,6 @@
+---
+- name: "Test ansbile roles"
+  hosts: woolsey
+  roles:
+    - test
+    - docker
