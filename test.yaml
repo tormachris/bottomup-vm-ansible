@@ -2,7 +2,7 @@
 - name: "Test ansbile roles"
   hosts: woolsey
   roles:
-    - test
+    - common
     - docker
     - mariadb
     - postgresql
