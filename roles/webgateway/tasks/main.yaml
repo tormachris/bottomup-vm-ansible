@@ -13,3 +13,13 @@
     name: apache2
     state: restarted
     enabled: yes
+
+- name: Allow http port via ufw
+  community.general.ufw:
+    rule: allow
+    port: http
+
+- name: Allow https port via ufw
+  community.general.ufw:
+    rule: allow
+    port: https

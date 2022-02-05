@@ -11,3 +11,9 @@
     name: mariadb
     state: restarted
     enabled: yes
+
+- name: Allow mysql port via ufw
+  community.general.ufw:
+    rule: allow
+    port: 3306
+    proto: tcp

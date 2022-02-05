@@ -21,3 +21,8 @@
     name: apache2
     state: restarted
     enabled: yes
+
+- name: Allow https port via ufw
+  community.general.ufw:
+    rule: allow
+    port: https

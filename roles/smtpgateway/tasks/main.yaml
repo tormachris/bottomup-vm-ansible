@@ -25,3 +25,8 @@
     name: postfix
     state: restarted
     enabled: yes
+
+- name: Allow smtp port via ufw
+  community.general.ufw:
+    rule: allow
+    port: smtp

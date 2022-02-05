@@ -11,3 +11,9 @@
     name: postgresql
     state: restarted
     enabled: yes
+
+- name: Allow postgresql port via ufw
+  community.general.ufw:
+    rule: allow
+    port: 5432
+    proto: tcp
