@@ -5,6 +5,7 @@ network:
   ethernets:
     ens192:
       dhcp4: true
+      dhcp-identifier: mac
       dhcp4-overrides:
         use-routes: false
       gateway4: {{default_gateway}}
