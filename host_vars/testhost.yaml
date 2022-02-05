@@ -1,2 +1,3 @@
 ---
 dockercompose_yml_name: "docker-compose-test.yml"
+backupscript_name: "test-backupscript.sh"
