@@ -1,13 +1,7 @@
 ---
-- name: "Test ansbile roles"
-  hosts: woolsey
+- name: "Setup watch2gether"
+  hosts: rabbit
   roles:
     - common
     - docker
-    - mariadb
-    - postgresql
-    - backupscript
-    - internalsmtp
-    - smtpgateway
-    - webgateway
-    - webserver
+     - webserver
