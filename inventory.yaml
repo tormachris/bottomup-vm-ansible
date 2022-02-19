@@ -8,3 +8,5 @@ all:
       hosts:
         testhost:
           ansible_host: 192.168.69.102
+        rabbit:
+          ansible_host: 192.168.69.14
