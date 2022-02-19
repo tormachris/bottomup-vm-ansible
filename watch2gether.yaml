@@ -4,4 +4,4 @@
   roles:
     - common
     - docker
-     - webserver
+    - webserver
