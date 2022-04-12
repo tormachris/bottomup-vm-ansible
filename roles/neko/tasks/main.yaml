@@ -6,6 +6,12 @@
     name:
      - haproxy
 
+- name: Enable haproxy
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
+
 - name: "Install certbot via apt"
   apt:
     update_cache: yes
