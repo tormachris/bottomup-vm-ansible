@@ -1,0 +1,5 @@
+---
+- name: "netplanapply"
+  command: netplan apply
+  async: 45
+  poll: 0

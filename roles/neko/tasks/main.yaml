@@ -1,0 +1,48 @@
+---
+- name: "Install haproxy via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - haproxy
+
+- name: Reset ufw rules to default
+  community.general.ufw:
+    state: reset
+
+- name: Allow ssh via ufw from localnet
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: ssh
+    from_ip: "192.168.69.0/24"
+    interface: eth0
+
+- name: Allow http via ufw from internet
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: http
+    interface: eth1
+
+- name: Allow https via ufw from internet
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: https
+    interface: eth1
+
+- name: Allow http via ufw from internet
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: http
+    interface: eth1
+
+- name: Allow neko ports via ufw from internet
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: 52000:52100
+    proto: udp
+    interface: eth1

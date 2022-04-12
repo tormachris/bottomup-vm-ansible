@@ -1,0 +1,7 @@
+---
+- name: "Setup neko"
+  hosts: neko
+  roles:
+    - common
+    - docker
+    - neko

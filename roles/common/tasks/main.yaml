@@ -1,5 +1,4 @@
 ---
-- include_tasks: static-networking.yaml
 - include_tasks: apt.yaml
 - include_tasks: clean-motd.yaml
 - include_tasks: remove-snap.yaml

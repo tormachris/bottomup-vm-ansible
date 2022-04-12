@@ -1,7 +1,0 @@
----
-- name: "Setup watch2gether"
-  hosts: rabbit
-  roles:
-    - common
-    - docker
-    - webserver
