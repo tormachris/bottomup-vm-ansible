@@ -7,4 +7,14 @@ all:
     woolsey:
       hosts:
         neko:
-          ansible_host: 192.168.69.13
+          ansible_host: zelenka.stargate.internal
+        drone:
+          ansible_host: drone.stargate.internal
+        keycloak:
+          ansible_host: keycloak.stargate.internal
+        sonar:
+          ansible_host: sonar.stargate.internal
+        swagger:
+          ansible_host: swagger.stargate.internal
+        drone-runner:
+          ansible_host: drone-runner.stargate.internal

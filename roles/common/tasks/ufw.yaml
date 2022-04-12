@@ -6,13 +6,13 @@
     name:
      - ufw
 
-- name: Enable ufw
-  community.general.ufw:
-    state: enabled
-
 - name: Reset ufw rules to default
   community.general.ufw:
     state: reset
+
+- name: Enable ufw
+  community.general.ufw:
+    state: enabled
 
 - name: Allow ssh via ufw
   community.general.ufw:

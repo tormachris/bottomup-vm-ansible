@@ -10,6 +10,10 @@
   community.general.ufw:
     state: reset
 
+- name: Enable ufw
+  community.general.ufw:
+    state: enabled
+
 - name: Allow ssh via ufw from localnet
   community.general.ufw:
     rule: allow
