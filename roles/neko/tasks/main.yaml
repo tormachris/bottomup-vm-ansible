@@ -6,6 +6,13 @@
     name:
      - haproxy
 
+- name: "Install certbot via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - python3-certbot
+
 - name: Reset ufw rules to default
   community.general.ufw:
     state: reset
