@@ -13,6 +13,15 @@
     mode: 644
     owner: root
 
+- name: Enable ssl module
+  command: a2enmod ssl
+
+- name: Enable proxy module
+  command: a2enmod proxy
+
+- name: Enable proxy_http module
+  command: a2enmod proxy_http
+
 - name: Enable site
   command: a2ensite site.conf
 
