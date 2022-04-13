@@ -3,6 +3,7 @@
   ansible.builtin.user:
     name: service-user
     comment: Service user
+    shell: /bin/bash
 
 - name: "Update authorized_keys of tormakris"
   ansible.posix.authorized_key:
