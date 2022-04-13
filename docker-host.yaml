@@ -2,6 +2,7 @@
 - name: "Deploy basic webhost with Docker"
   hosts: keycloak
   roles:
+    - netplan
     - common
     - docker
     - webserver
