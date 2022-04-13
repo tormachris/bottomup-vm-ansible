@@ -1,0 +1,7 @@
+---
+- name: "Deploy basic Docker host to drone-runner"
+  hosts: drone-runner
+  roles:
+    - netplan
+    - common
+    - docker
