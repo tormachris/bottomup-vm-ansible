@@ -3,7 +3,7 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    ens192:
+    {{ ansible_default_ipv4.interface }}:
       dhcp4: true
       dhcp-identifier: mac
       dhcp4-overrides:

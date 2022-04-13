@@ -1,0 +1,7 @@
+---
+- name: "Deploy basic webhost with Docker"
+  hosts: keycloak
+  roles:
+    - common
+    - docker
+    - webserver
