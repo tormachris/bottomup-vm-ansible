@@ -8,6 +8,16 @@
      - python3-certbot
      - python3-certbot-nginx
 
+- name: Allow http port via ufw
+  community.general.ufw:
+    rule: allow
+    port: http
+
+- name: Allow https port via ufw
+  community.general.ufw:
+    rule: allow
+    port: https
+
 - name: Enable and restart nginx daemon
   service:
     name: nginx
@@ -88,13 +98,3 @@
   service:
     name: nginx
     state: reloaded
-
-- name: Allow http port via ufw
-  community.general.ufw:
-    rule: allow
-    port: http
-
-- name: Allow https port via ufw
-  community.general.ufw:
-    rule: allow
-    port: https
