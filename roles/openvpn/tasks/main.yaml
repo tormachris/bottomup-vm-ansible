@@ -1,0 +1,24 @@
+---
+- name: "Install openvpn-server via apt"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - openvpn-server
+
+- name: Upload openvpn config to server
+  ansible.posix.synchronize:
+    src: openvpn-config
+    dest: /etc/openvpn/server
+
+- name: Enable and restart openvpn daemon
+  service:
+    name: openvpn
+    state: restarted
+    enabled: yes
+
+- name: Allow openvpn port via ufw
+  community.general.ufw:
+    rule: allow
+    port: "1194"
+    proto: udp
