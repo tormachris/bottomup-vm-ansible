@@ -1,12 +1,4 @@
 ---
-- name: "Remove Apache via apt"
-  apt:
-    update_cache: yes
-    state: absent
-    purge: true
-    name:
-     - apache2
-
 - name: "Install Nginx via apt"
   apt:
     update_cache: yes
