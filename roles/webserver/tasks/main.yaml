@@ -1,33 +1,30 @@
 ---
-- name: "Install Apache via apt"
+- name: "Remove Apache via apt"
+  apt:
+    update_cache: yes
+    state: absent
+    purge: true
+    name:
+     - apache2
+
+- name: "Install Nginx via apt"
   apt:
     update_cache: yes
     state: present
     name:
-     - apache2
+     - nginx
 
 - name: Upload site config to destination
   copy:
-    src: apache-site.conf
-    dest: /etc/apache2/sites-available/site.conf
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
     mode: 644
     owner: root
+    group: root
 
-- name: Enable ssl module
-  command: a2enmod ssl
-
-- name: Enable proxy module
-  command: a2enmod proxy
-
-- name: Enable proxy_http module
-  command: a2enmod proxy_http
-
-- name: Enable site
-  command: a2ensite site.conf
-
-- name: Enable and restart Apache2 daemon
+- name: Enable and restart nginx daemon
   service:
-    name: apache2
+    name: nginx
     state: restarted
     enabled: yes
 
