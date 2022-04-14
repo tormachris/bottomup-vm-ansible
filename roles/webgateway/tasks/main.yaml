@@ -16,12 +16,12 @@
 
 - name: Generate certificate for all proxied domains
   command:
-    cmd: certbot certonly --apache -d {{item.domain}}
+    cmd: certbot certonly --nginx -d {{item.domain}}
   with_items: "{{ proxy }}"
 
 - name: Generate certificate for all static sites
   command:
-    cmd: certbot certonly --apache -d {{item.domain}}
+    cmd: certbot certonly --nginx -d {{item.domain}}
   with_items: "{{ static }}"
 
 - name: "Generate certbot script"
