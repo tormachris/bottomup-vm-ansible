@@ -18,6 +18,14 @@
     rule: allow
     port: https
 
+- name: Copy default nginx config
+  ansible.builtin.copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: Enable and restart nginx daemon
   service:
     name: nginx
