@@ -6,6 +6,24 @@
     name:
      - postgresql
 
+- name: Add access to every host on local network
+  postgresql_pg_hba:
+    dest: /var/lib/postgres/data/pg_hba.conf
+    contype: host
+    users: all
+    databases: all
+    address: samenet
+    state: present
+
+- name: Add access to every host via tls on local network
+  postgresql_pg_hba:
+    dest: /var/lib/postgres/data/pg_hba.conf
+    contype: hostssl
+    users: all
+    databases: all
+    address: samenet
+    state: present
+
 - name: Enable and restart PostgreSQL daemon
   service:
     name: postgresql

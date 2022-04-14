@@ -20,3 +20,11 @@ all:
           ansible_host: drone-runner.stargate.internal
         smtp:
           ansible_host: smtp.stargate.internal
+        guacamole:
+          ansible_host: guacamole.stargate.internal
+        bitwarden:
+          ansible_host: bitwarden.stargate.internal
+        webgateway:
+          ansible_host: apache.stargate.internal
+        openvpn:
+          ansible_host: openvpn.stargate.internal
