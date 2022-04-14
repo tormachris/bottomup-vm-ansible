@@ -98,6 +98,15 @@
     group: root
     mode: '0644'
 
+- name: Validate nginx configuration
+  command:
+    cmd: nginx -t
+
+- name: Reload nginx after configuration change
+  service:
+    name: nginx
+    state: reloaded
+
 - name: "Checkout static websites from git"
   ansible.builtin.git:
     repo: "{{ item.repo }}"
@@ -109,12 +118,3 @@
     path: "{{ item.directory}}/.git"
     state: absent
   with_items: "{{ static }}"
-
-- name: Validate nginx configuration
-  command:
-    cmd: nginx -t
-
-- name: Reload nginx after configuration change
-  service:
-    name: nginx
-    state: reloaded
