@@ -10,7 +10,7 @@ proxy:
   - {domain: swagger.kmlabz.com, ip: swagger.stargate.internal}
 
 static:
-  - {domain: tormakristof.eu, directory: /var/www/tormakristof.eu}
-  - {domain: tormakris.dev, directory: /var/www/tormakristof.eu}
-  - {domain: torma.xyz, directory: /var/www/tormakristof.eu}
-  - {domain: kmlabz.com, directory: /var/www/kmlabz.com}
+  - {domain: tormakristof.eu, directory: /var/www/tormakristof.eu, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
+  - {domain: tormakris.dev, directory: /var/www/tormakristof.eu, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
+  - {domain: torma.xyz, directory: /var/www/tormakristof.eu, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
+  - {domain: kmlabz.com, directory: /var/www/kmlabz.com, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}

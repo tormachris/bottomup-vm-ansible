@@ -98,6 +98,18 @@
     group: root
     mode: '0644'
 
+- name: "Checkout static websites from git"
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.directory }}"
+  with_items: "{{ static }}"
+
+- name: "Remove .git directory from static websites"
+  ansible.builtin.file:
+    path: "{{ item.directory}}/.git"
+    state: absent
+  with_items: "{{ static }}"
+
 - name: Validate nginx configuration
   command:
     cmd: nginx -t
