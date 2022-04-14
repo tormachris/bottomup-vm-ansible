@@ -35,13 +35,13 @@
 - name: "Check if proxy domains have certificate available"
   stat:
     path: "/etc/letsencrypt/live/{{ item.domain }}"
-    register: "{{ item.domain }}_available"
+  register: "{{ item.domain }}_available"
   with_items: "{{ proxy }}"
 
 - name: "Check if statically served domains have certificate available"
   stat:
     path: "/etc/letsencrypt/live/{{ item.domain }}"
-    register: "{{ item.domain }}_available"
+  register: "{{ item.domain }}_available"
   with_items: "{{ static }}"
 
 - name: Generate certificate for all proxied domains
