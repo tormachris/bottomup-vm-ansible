@@ -1,5 +1,3 @@
 ---
-postfix_relayhost: 'smtp.sendgrid.net'
-external_domain: 'kmlabz.com'
-username: lofasz
-password: lofasz
+postfix_relayhost: 'smtp-relay.gmail.com:25'
+external_domain: 'tormakris.dev'

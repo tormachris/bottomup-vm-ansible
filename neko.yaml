@@ -5,3 +5,4 @@
     - common
     - docker
     - neko
+    - internalsmtp

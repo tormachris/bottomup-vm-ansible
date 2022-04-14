@@ -18,3 +18,5 @@ all:
           ansible_host: swagger.stargate.internal
         drone-runner:
           ansible_host: drone-runner.stargate.internal
+        smtp:
+          ansible_host: smtp.stargate.internal

@@ -60,6 +60,6 @@
   community.general.ufw:
     rule: allow
     direction: in
-    port: 52000:52100
+    port: 59000:59049
     proto: udp
     interface: eth1

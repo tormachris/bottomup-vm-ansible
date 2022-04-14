@@ -1,4 +1,4 @@
 ---
 postfix_relayhost: 'smtp.stargate.internal'
 
-external_domain: 'kmlabz.com'
+external_domain: 'tormakris.dev'

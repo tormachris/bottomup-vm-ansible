@@ -6,12 +6,6 @@
     name:
      - postfix
 
-- name: Install Postfix SASL credentials
-  template:
-    src: templates/sasl_passwd
-    mode: 600
-    dest: /etc/postfix/sasl_passwd
-
 - name: Install Postfix mail gateway config
   template:
     src: templates/main.cf
@@ -19,9 +13,6 @@
 
 - name: Build /etc/mailname
   shell: hostname --fqdn > /etc/mailname
-
-- name: Build hashtable of SASL creds
-  command: postmap /etc/postfix/sasl_passwd
 
 - name: Restart Postfix
   service:
