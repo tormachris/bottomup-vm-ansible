@@ -109,6 +109,7 @@
 
 - name: "Checkout static websites from git"
   ansible.builtin.git:
+    force: true
     repo: "{{ item.repo }}"
     dest: "{{ item.directory }}"
   with_items: "{{ static }}"
