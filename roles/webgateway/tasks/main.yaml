@@ -32,29 +32,15 @@
     state: restarted
     enabled: yes
 
-- name: "Check if proxy domains have certificate available"
-  stat:
-    path: "/etc/letsencrypt/live/{{ item.domain }}"
-  register: "{{ item.domain }}_available"
-  with_items: "{{ proxy }}"
-
-- name: "Check if statically served domains have certificate available"
-  stat:
-    path: "/etc/letsencrypt/live/{{ item.domain }}"
-  register: "{{ item.domain }}_available"
-  with_items: "{{ static }}"
-
 - name: Generate certificate for all proxied domains
   command:
-    cmd: certbot certonly --nginx -d {{item.domain}}
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ proxy }}"
-  when: not {{ item.domain }}_available.stat.exists
 
 - name: Generate certificate for all static sites
   command:
-    cmd: certbot certonly --nginx -d {{item.domain}}
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ static }}"
-  when: not {{ item.domain }}_available.stat.exists
 
 - name: "Generate certbot script"
   ansible.builtin.template:
