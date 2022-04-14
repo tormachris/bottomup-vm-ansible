@@ -1,0 +1,16 @@
+proxy:
+  - {domain: bitwarden.tormakristof.eu, ip: bitwarden.stargate.internal}
+  - {domain: nextcloud.tormakristof.eu, ip: nextcloud.stargate.internal}
+  - {domain: drone.kmlabz.com, ip: drone.stargate.internal}
+  - {domain: git.kmlabz.com, ip: git.stargate.internal}
+  - {domain: guacamole.kmlabz.com, ip: guacamole.stargate.internal}
+  - {domain: keycloak.kmlabz.com, ip: keycloak.stargate.internal}
+  - {domain: nexus.kmlabz.com, ip: nexus.stargate.internal}
+  - {domain: registry.kmlabz.com, ip: registry.stargate.internal}
+  - {domain: swagger.kmlabz.com, ip: swagger.stargate.internal}
+
+static:
+  - {domain: tormakristof.eu, directory: /var/www/tormakristof.eu}
+  - {domain: tormakris.dev, directory: /var/www/tormakristof.eu}
+  - {domain: torma.xyz, directory: /var/www/tormakristof.eu}
+  - {domain: kmlabz.com, directory: /var/www/kmlabz.com}

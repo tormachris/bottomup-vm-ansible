@@ -1,0 +1,5 @@
+[Unit]
+Description=Script based certificate renewal via certbot
+
+[Install]
+WantedBy=default.target

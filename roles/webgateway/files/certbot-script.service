@@ -1,0 +1,9 @@
+[Unit]
+Description=Renew certificates with certbot
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /opt/certbot.sh
+
+[Install]
+WantedBy=certbot.target
