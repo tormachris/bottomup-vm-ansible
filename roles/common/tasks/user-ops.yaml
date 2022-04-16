@@ -5,6 +5,34 @@
     comment: Service user
     shell: /bin/bash
 
+- name: "Add ansible user"
+  ansible.builtin.user:
+    name: ansible
+    comment: Ansible
+    shell: /bin/bash
+
+- name: "Add ansible user to sudo group"
+  ansible.builtin.user:
+    name: ansible
+    comment: Ansible
+    groups: sudo
+    append: yes
+
+- name: Create .ssh directory of root user
+  file:
+    path: /home/ansible/.ssh
+    state: directory
+    owner: ansible
+    group: ansible
+
+- name: Copy authorized_keys
+  copy:
+    src: authorized_keys
+    dest: /home/ansible/.ssh/authorized_keys
+    mode: 0600
+    owner: ansible
+    group: ansible
+
 - name: "Update authorized_keys of tormakris"
   ansible.posix.authorized_key:
     user: tormakris
