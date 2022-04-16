@@ -39,7 +39,7 @@ all:
         nextcloud:
           ansible_host: nextcloud.stargate.internal
         mariadb:
-          ansible_host: mariadb.stargate.internal
+          ansible_host: mysql.stargate.internal
         backup:
           ansible_host: backup.stargate.internal
 ...
