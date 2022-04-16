@@ -2,6 +2,7 @@
 - name: Apply custom ufw rules
   community.general.ufw:
     rule: allow
+    direction: "in"
     port: "{{item.port}}"
     proto: "{{item.proto}}"
     interface: "{{item.interface}}"
