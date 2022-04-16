@@ -12,13 +12,13 @@
     state: restarted
     enabled: yes
 
-- name: Upload site config to destination
-  copy:
+- name: "Generate nginx configuration"
+  ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
-    mode: 644
     owner: root
     group: root
+    mode: '0644'
 
 - name: Reload nginx daemon
   service:
