@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # {{ansible_managed}}
 
+{% if backup.prearecommand is defined and backup.prearecommand|length > 0 %}
 {{backup.prearecommand}}
+{% endif %}
 
 {% if backup.internal %}
 
