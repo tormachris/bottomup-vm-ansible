@@ -1,0 +1,70 @@
+---
+- name: "Deploy basic webhost with Docker"
+  hosts: dockerwebhosts
+  roles:
+    - netplan
+    - common
+    - docker
+    - webserver
+    - internalsmtp
+
+- name: "Deploy database server base"
+  hosts: postgres
+  roles:
+    - netplan
+    - common
+    - customfirewall
+    - backupscript
+    - customfirewall
+
+- name: "Deploy basic Docker host to drone-runner"
+  hosts: drone-runner
+  roles:
+    - netplan
+    - common
+    - docker
+    - internalsmtp
+
+- name: "Deploy gitea in Docker"
+  hosts: git
+  roles:
+    - netplan
+    - common
+    - docker
+    - webserver
+    - internalsmtp
+    - backupscript
+    - customfirewall
+
+- name: "Setup neko"
+  hosts: neko
+  roles:
+    - common
+    - docker
+    - neko
+    - customfirewall
+    - internalsmtp
+
+- name: "Deploy smtpgateway to smtp.stargate.internal"
+  hosts: smtp
+  roles:
+    - netplan
+    - common
+    - smtpgateway
+
+- name: "Deploy managed web gateway"
+  hosts: webgateway
+  roles:
+    - common
+    - webgateway
+    - internalsmtp
+
+- name: "Deploy backup server"
+  hosts: backup
+  roles:
+    - netplan
+    - common
+    - internalsmtp
+    - backupscript
+    - backuphost
+...

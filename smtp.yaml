@@ -1,8 +1,0 @@
----
-- name: "Deploy smtpgateway to smtp.stargate.internal"
-  hosts: smtp
-  roles:
-    - netplan
-    - common
-    - smtpgateway
-...
