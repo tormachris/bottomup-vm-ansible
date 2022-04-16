@@ -42,5 +42,5 @@
 - name: "Restart sshd"
   service:
     name: sshd
-    status: restarted
+    state: restarted
 ...
