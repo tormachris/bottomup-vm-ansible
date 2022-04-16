@@ -11,6 +11,7 @@ network:
       {% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       gateway4: {{netplan.default_gateway}}
       {% endif %}
+    {% if netplan.additionalinterfaces is defined and netplan.additionalinterfaces|length > 0 %}
     {% for interface in netplan.additionalinterfaces %}
     {{ interface.name }}:
       dhcp4: {{ interface.dhcp4 }}
@@ -36,3 +37,4 @@ network:
         search: []
       {% endif %}
     {% endfor %}
+    {% endif %}
