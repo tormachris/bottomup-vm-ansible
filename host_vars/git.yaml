@@ -6,6 +6,7 @@ backup:
   host: backup.stargate.internal
   internal: true
   prearecommand: ""
+  basedir: /mnt/backupstore
 firewall:
   - port: "2222"
     proto: tcp
