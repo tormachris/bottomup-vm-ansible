@@ -39,6 +39,11 @@
     name: sshd
     state: restarted
 
+- name: Create .ssh directory of backup user
+  file:
+    path: /home/backup/.ssh
+    state: directory
+
 - name: Copy authorized_keys
   copy:
     src: authorized_keys
