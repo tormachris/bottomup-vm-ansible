@@ -1,6 +1,6 @@
 ---
 - name: "Deploy backup server"
-  hosts: git
+  hosts: backup
   roles:
     - netplan
     - common
