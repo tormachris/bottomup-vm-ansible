@@ -1,5 +1,5 @@
 ---
-service-name: git
+servicename: git
 backup:
-  preare-command: ""
+  prearecommand: ""
   folder: "/home/git"
