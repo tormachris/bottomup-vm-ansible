@@ -1,6 +1,14 @@
 ---
+servicename: postgres
 firewall:
   - port: "5432"
     proto: tcp
     interface: "eth0"
+backup:
+  folder: "/var/lib/postgresql/backup"
+  tarfolder: "backup"
+  host: backup.stargate.internal
+  internal: true
+  prearecommand: "time ( sudo -u postgres pg_dumpall > /var/lib/postgresql/backup/postgres.sql )"
+  basedir: /mnt/backupstore
 ...
