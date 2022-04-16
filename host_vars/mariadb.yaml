@@ -1,4 +1,5 @@
 ---
+servicename: mysql
 firewall:
   - port: "3306"
     proto: tcp
