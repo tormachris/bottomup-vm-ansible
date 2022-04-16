@@ -24,9 +24,21 @@ all:
           ansible_host: apache.stargate.internal
         openvpn:
           ansible_host: openvpn.stargate.internal
+        nexus:
+          ansible_host: nexus.stargate.internal
+        git:
+          ansible_host: git.stargate.internal
+        postgres:
+          ansible_host: postgres.stargate.internal
     mckay:
       hosts:
         guacamole:
           ansible_host: guacamole.stargate.internal
         bitwarden:
           ansible_host: bitwarden.stargate.internal
+        nextcloud:
+          ansible_host: nextcloud.stargate.internal
+        mysql:
+          ansible_host: mysql.stargate.internal
+        backup:
+          ansible_host: backup.stargate.internal
