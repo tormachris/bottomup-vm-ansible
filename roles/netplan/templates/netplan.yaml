@@ -8,33 +8,34 @@ network:
       dhcp-identifier: mac
       dhcp4-overrides:
         use-routes: false
-      {%- if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
+{% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       gateway4: {{netplan.default_gateway}}
       {% endif %}
-    {%- if netplan.additionalinterfaces is defined and netplan.additionalinterfaces|length > 0 %}
-    {%- for interface in netplan.additionalinterfaces %}
+{% if netplan.additionalinterfaces is defined and netplan.additionalinterfaces|length > 0 %}
+{% for interface in netplan.additionalinterfaces %}
     {{ interface.name }}:
       dhcp4: {{ interface.dhcp4 }}
       dhcp6: {{ interface.dhcp6 }}
       dhcp-identifier: mac
       dhcp4-overrides:
         use-routes: false
-      {%- if interface.addresses is defined and interface.addresses|length > 0 %}
+{% if interface.addresses is defined and interface.addresses|length > 0 %}
       addresses:
-      {%- for address in interface.addresses %}
+{% for address in interface.addresses %}
         - {{address}}
       {% endfor %}
       {% endif %}
-      {%- if interface.gateway4 is defined and interface.gateway4|length > 0 %}
+{% if interface.gateway4 is defined and interface.gateway4|length > 0 %}
       gateway4: {{interface.gateway4}}
       {% endif %}
-      {%- if interface.gateway6 is defined and interface.gateway6|length > 0  %}
+{% if interface.gateway6 is defined and interface.gateway6|length > 0  %}
       gateway4: {{interface.gateway6}}
       {% endif %}
-      {%- if interface.denydns %}
+{% if interface.denydns %}
       nameservers:
         addresses: []
         search: []
       {% endif %}
     {% endfor %}
     {% endif %}
+...

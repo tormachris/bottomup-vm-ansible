@@ -14,3 +14,4 @@
     src: templates/netplan.yaml
     dest: /etc/netplan/00-static.yaml
   notify: netplanapply
+...

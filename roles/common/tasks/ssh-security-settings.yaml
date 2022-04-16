@@ -38,3 +38,4 @@
     path: /etc/ssh/sshd_config
     line: "AllowUsers tormakris ansible service-user"
   when: checkallowusers.found == 0
+...

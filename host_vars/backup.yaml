@@ -3,3 +3,4 @@ servicename: mckay
 backup:
   host: oniel.tormakristof.eu
   internal: false
+...

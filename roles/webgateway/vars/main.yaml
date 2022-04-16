@@ -14,3 +14,4 @@ static:
   - {domain: tormakris.dev, directory: /var/www/tormakristof.eu, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
   - {domain: torma.xyz, directory: /var/www/tormakristof.eu, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
   - {domain: kmlabz.com, directory: /var/www/kmlabz.com, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
+...

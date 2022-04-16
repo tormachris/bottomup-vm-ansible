@@ -20,3 +20,4 @@ netplan:
       dhcp4: true
       dhcp6: false
       denydns: true
+...

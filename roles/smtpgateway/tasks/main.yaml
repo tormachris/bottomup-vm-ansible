@@ -24,3 +24,4 @@
   community.general.ufw:
     rule: allow
     port: smtp
+...

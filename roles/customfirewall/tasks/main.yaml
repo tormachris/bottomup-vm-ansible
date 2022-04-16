@@ -7,3 +7,4 @@
     proto: "{{item.proto}}"
     interface: "{{item.interface}}"
   with_items: "{{ firewall }}"
+...

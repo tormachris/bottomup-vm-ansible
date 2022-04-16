@@ -16,3 +16,4 @@
     - /var/lib/snapd
     - "/home/{{ ansible_user }}/snap"
   when: ansible_distribution == "Ubuntu"
+...

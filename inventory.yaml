@@ -42,3 +42,4 @@ all:
           ansible_host: mariadb.stargate.internal
         backup:
           ansible_host: backup.stargate.internal
+...

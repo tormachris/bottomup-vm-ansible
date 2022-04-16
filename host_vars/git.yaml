@@ -7,3 +7,4 @@ firewall:
   - port: "2222"
     proto: tcp
     interface: "eth0"
+...

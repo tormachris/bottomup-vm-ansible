@@ -24,9 +24,4 @@
     name: openvpn
     state: restarted
     enabled: yes
-
-- name: Allow openvpn port via ufw
-  community.general.ufw:
-    rule: allow
-    port: "1194"
-    proto: udp
+...
