@@ -1,0 +1,6 @@
+---
+- name: Allow git ssh via ufw
+  community.general.ufw:
+    rule: allow
+    port: 2222
+    proto: tcp

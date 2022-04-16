@@ -1,31 +1,35 @@
 ---
-- name: Copy backupscript to target
-  copy:
-    src: "{{ backupscript_name }}"
+- name: "Generate backupscript"
+  ansible.builtin.template:
+    src: backupscript.sh
     dest: /opt/backupscript.sh
-    mode: 700
-    owner: service-user
+    owner: root
+    group: root
+    mode: '0700'
 
 - name: Copy backup-script.service to target
   copy:
     src: backup-script.service
     dest: /usr/lib/systemd/system/backup-script.service
     mode: 644
-    owner: service-user
+    owner: root
+    group: root
 
 - name: Copy backup.target to target
   copy:
     src: backup.target
     dest: /usr/lib/systemd/system/backup.target
     mode: 644
-    owner: service-user
+    owner: root
+    group: root
 
 - name: Copy backup.timer to target
   copy:
     src: backup.timer
     dest: /usr/lib/systemd/system/backup.timer
     mode: 644
-    owner: service-user
+    owner: root
+    group: root
 
 - name: Enable backup-script.service and reload systemd daemon
   when: ansible_service_mgr == "systemd"

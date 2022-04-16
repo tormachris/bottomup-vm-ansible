@@ -1,0 +1,5 @@
+---
+service-name: git
+backup:
+  preare-command: ""
+  folder: "/home/git"
