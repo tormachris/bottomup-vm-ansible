@@ -2,4 +2,9 @@
 servicename: git
 backup:
   prearecommand: ""
-  folder: "/home/git"
+  folder: "/home/service-user"
+  tarfolder: "gitea docker-compose.yml"
+firewall:
+  - port: "2222"
+    proto: tcp
+    interface: "eth0"

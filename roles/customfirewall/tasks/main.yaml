@@ -1,0 +1,8 @@
+---
+- name: Apply custom ufw rules
+  community.general.ufw:
+    rule: allow
+    port: "{{item.port}}"
+    proto: {{item.proto}}
+    interface: {{item.interface}}
+  with_items: "{{firewall}}"

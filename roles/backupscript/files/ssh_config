@@ -1,0 +1,4 @@
+Host backup backup.stargate.internal
+        HostName backup.stargate.internal
+        User backup
+        IdentityFile ~/.ssh/id_rsa
