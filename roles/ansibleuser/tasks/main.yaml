@@ -12,6 +12,13 @@
     groups: sudo
     append: yes
 
+- name: Create .ssh directory of root user
+  file:
+    path: /home/ansible//.ssh
+    state: directory
+    owner: ansible
+    group: ansible
+
 - name: Copy authorized_keys
   copy:
     src: authorized_keys
