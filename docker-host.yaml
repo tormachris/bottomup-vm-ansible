@@ -1,6 +1,6 @@
 ---
 - name: "Deploy basic webhost with Docker"
-  hosts: keycloak, drone, swagger, guacamole, bitwarden
+  hosts: keycloak, drone, swagger, guacamole, bitwarden, nexus, nextcloud, git, 
   roles:
     - netplan
     - common
