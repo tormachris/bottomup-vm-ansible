@@ -6,6 +6,12 @@
     name:
      - nginx
 
+- name: Enable and restart nginx daemon
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes
+
 - name: Upload site config to destination
   copy:
     src: nginx.conf
@@ -14,11 +20,10 @@
     owner: root
     group: root
 
-- name: Enable and restart nginx daemon
+- name: Reload nginx daemon
   service:
     name: nginx
-    state: restarted
-    enabled: yes
+    state: reloaded
 
 - name: Allow https port via ufw
   community.general.ufw:
