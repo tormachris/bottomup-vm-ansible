@@ -1,0 +1,4 @@
+Host oniel.tormakristof.eu
+        HostName oniel.tormakristof.eu
+        User backup
+        IdentityFile ~/.ssh/id_rsa
