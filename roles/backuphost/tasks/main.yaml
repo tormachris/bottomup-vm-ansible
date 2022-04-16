@@ -11,4 +11,26 @@
     state: present
     password_lock: true
     shell: "/sbin/nologin"
+
+- name: Undefine AllowUsers
+  lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    line: "AllowUsers tormakris ansible service-user"
+
+- name: Check if AllowUsers is defined
+  lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    regexp: "^AllowUsers"
+  check_mode: true
+  changed_when: false
+  register: checkallowusers
+
+- name: Define AllowUsers if undefined
+  lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    line: "AllowUsers tormakris ansible backup"
+  when: checkallowusers.found == 0
 ...
