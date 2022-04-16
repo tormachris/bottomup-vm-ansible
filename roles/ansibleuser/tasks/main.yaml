@@ -1,0 +1,20 @@
+---
+- name: "Add ansible user"
+  ansible.builtin.user:
+    name: ansible
+    comment: Ansible
+    shell: /bin/bash
+
+- name: "Add ansible user to sudo group"
+  ansible.builtin.user:
+    name: ansible
+    comment: Ansible
+    groups: sudo
+    append: yes
+
+- name: Add public key to authorized keys
+  ansible.posix.authorized_key:
+    user: ansible
+    state: present
+    key: authorized_keys
+...

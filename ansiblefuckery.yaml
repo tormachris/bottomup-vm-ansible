@@ -1,0 +1,6 @@
+---
+- name: "Add ansible stuff"
+  hosts: all
+  roles:
+    - ansibleuser
+...

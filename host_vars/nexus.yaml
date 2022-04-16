@@ -1,4 +1,5 @@
 ---
+ansible_host: nexus.stargate.internal
 webserver:
   - domain: "nexus.kmlabz.com"
     port: 8080

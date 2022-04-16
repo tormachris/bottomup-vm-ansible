@@ -1,6 +1,6 @@
 ---
 - name: "Deploy database server base"
-  hosts: postgres, mariadb
+  hosts: postgres
   roles:
     - netplan
     - common

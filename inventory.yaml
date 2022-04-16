@@ -7,39 +7,29 @@ all:
     woolsey:
       hosts:
         neko:
-          ansible_host: zelenka.stargate.internal
         drone:
-          ansible_host: drone.stargate.internal
         keycloak:
-          ansible_host: keycloak.stargate.internal
         sonar:
-          ansible_host: sonar.stargate.internal
         swagger:
-          ansible_host: swagger.stargate.internal
         drone-runner:
-          ansible_host: drone-runner.stargate.internal
         smtp:
-          ansible_host: smtp.stargate.internal
         webgateway:
-          ansible_host: apache.stargate.internal
         openvpn:
-          ansible_host: openvpn.stargate.internal
         nexus:
-          ansible_host: nexus.stargate.internal
         git:
-          ansible_host: git.stargate.internal
         postgres:
-          ansible_host: postgres.stargate.internal
     mckay:
       hosts:
         guacamole:
-          ansible_host: guacamole.stargate.internal
         bitwarden:
-          ansible_host: bitwarden.stargate.internal
         nextcloud:
-          ansible_host: nextcloud.stargate.internal
-        mariadb:
-          ansible_host: mysql.stargate.internal
         backup:
-          ansible_host: backup.stargate.internal
+    docker-webhosts:
+        keycloak:
+        drone:
+        swagger:
+        guacamole:
+        bitwarden:
+        nexus:
+        nextcloud :
 ...

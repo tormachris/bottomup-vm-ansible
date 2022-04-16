@@ -1,0 +1,3 @@
+---
+ansible_host: guacamole.stargate.internal
+...
