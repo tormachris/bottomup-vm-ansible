@@ -38,7 +38,7 @@ all:
           ansible_host: bitwarden.stargate.internal
         nextcloud:
           ansible_host: nextcloud.stargate.internal
-        mysql:
-          ansible_host: mysql.stargate.internal
+        mariadb:
+          ansible_host: mariadb.stargate.internal
         backup:
           ansible_host: backup.stargate.internal

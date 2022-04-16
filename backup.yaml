@@ -1,0 +1,8 @@
+---
+- name: "Deploy backup server"
+  hosts: git
+  roles:
+    - netplan
+    - common
+    - internalsmtp
+    - backupscript

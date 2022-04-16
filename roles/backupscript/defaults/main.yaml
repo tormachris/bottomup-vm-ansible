@@ -1,0 +1,6 @@
+---
+backup:
+  host: backup.stargate.internal
+  internal: true
+  prearecommand: ""
+  basedir: /mnt/backupstore

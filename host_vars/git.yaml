@@ -1,7 +1,6 @@
 ---
 servicename: git
 backup:
-  prearecommand: ""
   folder: "/home/service-user"
   tarfolder: "gitea docker-compose.yml"
 firewall:

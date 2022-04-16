@@ -1,0 +1,9 @@
+---
+- name: "Deploy database server base"
+  hosts: postgres, mariadb
+  roles:
+    - netplan
+    - common
+    - customfirewall
+    - backupscript
+    - customfirewall

@@ -15,3 +15,10 @@ firewall:
   - port: "59000:59049"
     proto: udp
     interface: "eth1"
+netplan:
+  default_gateway: ""
+  additionalinterfaces:
+    - name: "eth1"
+      dhcp4: true
+      dhcp6: true
+      denydns: true
