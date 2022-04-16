@@ -11,7 +11,7 @@ network:
       {% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       gateway4: {{netplan.default_gateway}}
       {% endif %}
-    {% for interface in additionalinterfaces %}
+    {% for interface in netplan.additionalinterfaces %}
     {{ interface.name }}:
       dhcp4: {{ interface.dhcp4 }}
       dhcp6: {{ interface.dhcp6 }}
