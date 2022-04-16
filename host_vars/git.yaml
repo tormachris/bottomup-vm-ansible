@@ -3,6 +3,9 @@ servicename: git
 backup:
   folder: "/home/service-user"
   tarfolder: "gitea docker-compose.yml"
+  host: backup.stargate.internal
+  internal: true
+  prearecommand: ""
 firewall:
   - port: "2222"
     proto: tcp
