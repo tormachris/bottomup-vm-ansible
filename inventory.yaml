@@ -9,7 +9,6 @@ all:
         neko:
         drone:
         keycloak:
-        sonar:
         swagger:
         drone-runner:
         smtp:
@@ -24,7 +23,7 @@ all:
         bitwarden:
         nextcloud:
         backup:
-    docker-webhosts:
+    dockerwebhosts:
         keycloak:
         drone:
         swagger:

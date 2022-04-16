@@ -1,6 +1,6 @@
 ---
 - name: "Deploy basic webhost with Docker"
-  hosts: docker-webhosts
+  hosts: dockerwebhosts
   roles:
     - netplan
     - common

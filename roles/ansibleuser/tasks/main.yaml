@@ -12,9 +12,11 @@
     groups: sudo
     append: yes
 
-- name: Add public key to authorized keys
-  ansible.posix.authorized_key:
-    user: ansible
-    state: present
-    key: authorized_keys
+- name: Copy authorized_keys
+  copy:
+    src: authorized_keys
+    dest: /home/ansible/.ssh/authorized_keys
+    mode: 0600
+    owner: ansible
+    group: ansible
 ...
