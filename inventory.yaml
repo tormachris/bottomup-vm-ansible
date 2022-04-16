@@ -27,5 +27,5 @@ all:
         guacamole:
         bitwarden:
         nexus:
-        nextcloud :
+        nextcloud:
 ...
