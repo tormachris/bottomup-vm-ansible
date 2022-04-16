@@ -6,4 +6,5 @@
     - common
     - internalsmtp
     - backupscript
+    - backuphost
 ...

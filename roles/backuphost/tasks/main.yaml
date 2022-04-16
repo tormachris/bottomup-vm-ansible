@@ -1,0 +1,14 @@
+---
+- name: "Add backup user"
+  ansible.builtin.user:
+    name: backup
+    comment: Backup user
+    shell: /bin/bash
+
+- name: "Dsiable service user"
+  ansible.builtin.user:
+    name: service-user
+    state: present
+    password_lock: true
+    shell: "/sbin/nologin"
+...
