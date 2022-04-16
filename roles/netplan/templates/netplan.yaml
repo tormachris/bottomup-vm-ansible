@@ -10,7 +10,7 @@ network:
         use-routes: false
 {% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       gateway4: {{netplan.default_gateway}}
-      {% endif %}
+{% endif %}
 {% if netplan.additionalinterfaces is defined and netplan.additionalinterfaces|length > 0 %}
 {% for interface in netplan.additionalinterfaces %}
     {{ interface.name }}:
@@ -23,19 +23,19 @@ network:
       addresses:
 {% for address in interface.addresses %}
         - {{address}}
-      {% endfor %}
-      {% endif %}
+{% endfor %}
+{% endif %}
 {% if interface.gateway4 is defined and interface.gateway4|length > 0 %}
       gateway4: {{interface.gateway4}}
-      {% endif %}
+{% endif %}
 {% if interface.gateway6 is defined and interface.gateway6|length > 0  %}
       gateway4: {{interface.gateway6}}
-      {% endif %}
+{% endif %}
 {% if interface.denydns %}
       nameservers:
         addresses: []
         search: []
-      {% endif %}
-    {% endfor %}
-    {% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
 ...
