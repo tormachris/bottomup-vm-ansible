@@ -42,6 +42,11 @@
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ static }}"
 
+- name: Generate certificate for all static sites
+  command:
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
+  with_items: "{{ redirect }}"
+
 - name: "Generate certbot script"
   ansible.builtin.template:
     src: certbot.sh

@@ -6,3 +6,6 @@ certbot renew --nginx --cert-name {{ proxysite.domain }}
 {% for staticsite in static %}
 certbot renew --nginx --cert-name {{ staticsite.domain }}
 {% endfor %}
+{% for redirectsite in redirect %}
+certbot renew --nginx --cert-name {{ redirectsite.domain }}
+{% endfor %}
