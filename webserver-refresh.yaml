@@ -1,0 +1,8 @@
+---
+- name: "Deploy managed web gateway"
+  hosts: webgateway
+  roles:
+    - common
+    - webgateway
+    - internalsmtp
+...
