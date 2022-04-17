@@ -46,7 +46,7 @@
   lineinfile:
     state: present
     path: /etc/sudoers
-    line: "ansible ALL=(ALL:ALL) NOPASSWD"
+    line: "ansible ALL=(ALL:ALL) NOPASSWD:ALL"
   when: checkallowusers.found == 0
 
 - name: "Update authorized_keys of tormakris"
