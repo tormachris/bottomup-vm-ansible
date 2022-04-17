@@ -1,4 +1,4 @@
 ---
 ansible_become: true
-ansible_user: tormakris
+ansible_user: ansible
 ...

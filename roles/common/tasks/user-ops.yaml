@@ -33,6 +33,22 @@
     owner: ansible
     group: ansible
 
+- name: Check if ansible is already nopasswd in sudoers
+  lineinfile:
+    state: absent
+    path: /etc/sudoers
+    regexp: "^ansible"
+  check_mode: true
+  changed_when: false
+  register: checkallowusers
+
+- name: Define ansible nopasswd in sudoers
+  lineinfile:
+    state: present
+    path: /etc/sudoers
+    line: "ansible ALL=(ALL:ALL) NOPASSWD"
+  when: checkallowusers.found == 0
+
 - name: "Update authorized_keys of tormakris"
   ansible.posix.authorized_key:
     user: tormakris
