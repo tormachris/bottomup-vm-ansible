@@ -14,14 +14,36 @@
     state: present
     reload: yes
 
-- name: Upload openvpn config to server
-  ansible.posix.synchronize:
-    src: openvpn-config
-    dest: /etc/openvpn/server
-
 - name: Enable and restart openvpn daemon
   service:
     name: openvpn
     state: restarted
     enabled: yes
+
+- name: Check if AllowUsers is defined
+  lineinfile:
+    state: absent
+    path: /etc/ufw/before.rules
+    regexp: "^# START OPENVPN"
+  check_mode: true
+  changed_when: false
+  register: checkufwrules
+
+- name: Insert openvpn iptables rules
+  blockinfile:
+    path: /etc/ufw/before.rules
+    block: |
+      # START OPENVPN RULES
+      # NAT table rules
+      *nat
+      :POSTROUTING ACCEPT [0:0]
+      # Allow traffic from OpenVPN client to everywhere
+      -A POSTROUTING -s 192.168.37.0/24 -o eth0 -j MASQUERADE
+      -A POSTROUTING -s 192.168.37.0/24 -o eth2 -j MASQUERADE
+      COMMIT
+      # END OPENVPN RULES
+
+- name: Reload ufw
+  community.general.ufw:
+    state: reloaded
 ...

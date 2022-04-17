@@ -28,4 +28,5 @@ all:
         bitwarden:
         nexus:
         nextcloud:
+        neko:
 ...

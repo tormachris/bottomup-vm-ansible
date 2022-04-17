@@ -6,6 +6,14 @@
     name:
      - haproxy
 
+- name: Copy haproxy configuration
+  copy:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+    owner: root
+    group: root
+
 - name: Enable haproxy
   service:
     name: haproxy
@@ -19,6 +27,18 @@
     name:
      - python3-certbot
 
+- name: Generate certificate for all proxied domains
+  command:
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d neko.tormakristof.eu
+
+- name: Copy certbot cronjob
+  copy:
+    src: certbot
+    dest: /etc/cron.weekly/certbot
+    mode: 0755
+    owner: root
+    group: root
+
 - name: Reset ufw rules to default
   community.general.ufw:
     state: reset
@@ -26,4 +46,27 @@
 - name: Enable ufw
   community.general.ufw:
     state: enabled
+
+- name: Copy datadog repo config
+  copy:
+    src: datadog.list
+    dest: /etc/apt/sources.list.d/datadog.list
+    mode: 0655
+    owner: root
+    group: root
+
+- name: "Install datadog-agent"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+      - datadog-agent
+
+- name: "Generate datadog configuration"
+  ansible.builtin.template:
+    src: datadog.yaml
+    dest: /etc/datadog-agnet/datadog.yaml
+    owner: dd-agent
+    group: dd-agent
+    mode: '0640'
 ...
