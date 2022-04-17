@@ -1,0 +1,6 @@
+---
+- name: "Fix ansible sudo stuff"
+  hosts: all
+  roles:
+    - ansible-sudo
+...
