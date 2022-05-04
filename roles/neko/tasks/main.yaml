@@ -71,7 +71,7 @@
 - name: "Generate datadog configuration"
   ansible.builtin.template:
     src: datadog.yaml
-    dest: /etc/datadog-agnet/datadog.yaml
+    dest: /etc/datadog-agent/datadog.yaml
     owner: dd-agent
     group: dd-agent
     mode: '0640'
