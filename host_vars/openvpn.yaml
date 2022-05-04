@@ -1,5 +1,5 @@
 ---
-ansible_host: openvpn.stargate.internal
+ansible_host: openvpn.intra.tormakris.dev
 firewall:
   - port: "1194"
     proto: udp

@@ -1,6 +1,6 @@
 ---
 backup:
-  host: backup.stargate.internal
+  host: backup.intra.tormakris.dev
   internal: true
   prearecommand: ""
   basedir: /mnt/backupstore

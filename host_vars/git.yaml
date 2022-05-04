@@ -1,10 +1,10 @@
 ---
-ansible_host: git.stargate.internal
+ansible_host: git.intra.tormakris.dev
 servicename: git
 backup:
   folder: "/home/service-user"
   tarfolder: "gitea docker-compose.yml"
-  host: backup.stargate.internal
+  host: backup.intra.tormakris.dev
   internal: true
   prearecommand: ""
   basedir: /mnt/backupstore

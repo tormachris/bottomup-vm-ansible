@@ -1,4 +1,4 @@
-Host backup backup.stargate.internal
-        HostName backup.stargate.internal
+Host backup backup.intra.tormakris.dev
+        HostName backup.intra.tormakris.dev
         User backup
         IdentityFile ~/.ssh/id_rsa

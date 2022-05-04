@@ -1,5 +1,5 @@
 ---
-postfix_relayhost: 'smtp.stargate.internal'
+postfix_relayhost: 'smtp.intra.tormakris.dev'
 
 external_domain: 'tormakris.dev'
 ...

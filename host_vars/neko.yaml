@@ -1,5 +1,5 @@
 ---
-ansible_host: zelenka.stargate.internal
+ansible_host: zelenka.intra.tormakris.dev
 firewall:
   - port: "ssh"
     proto: tcp

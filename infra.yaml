@@ -45,7 +45,7 @@
     - customfirewall
     - internalsmtp
 
-- name: "Deploy smtpgateway to smtp.stargate.internal"
+- name: "Deploy smtpgateway to smtp.intra.tormakris.dev"
   hosts: smtp
   roles:
     - netplan

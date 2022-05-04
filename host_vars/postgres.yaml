@@ -1,5 +1,5 @@
 ---
-ansible_host: postgres.stargate.internal
+ansible_host: postgres.intra.tormakris.dev
 servicename: postgres
 firewall:
   - port: "5432"
@@ -8,7 +8,7 @@ firewall:
 backup:
   folder: "/var/lib/postgresql/backup"
   tarfolder: "backup"
-  host: backup.stargate.internal
+  host: backup.intra.tormakris.dev
   internal: true
   prearecommand: "time ( sudo -u postgres pg_dumpall > /var/lib/postgresql/backup/postgres.sql )"
   basedir: /mnt/backupstore

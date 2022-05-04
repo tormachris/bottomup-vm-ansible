@@ -1,5 +1,5 @@
 ---
-ansible_host: backup.stargate.internal
+ansible_host: backup.intra.tormakris.dev
 servicename: mckay
 backup:
   host: oniel.tormakristof.eu
