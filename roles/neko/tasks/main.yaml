@@ -14,10 +14,10 @@
     owner: root
     group: root
 
-- name: Enable haproxy
+- name: Enable and stop haproxy
   service:
     name: haproxy
-    state: started
+    state: stopped
     enabled: yes
 
 - name: "Install certbot via apt"
@@ -29,7 +29,13 @@
 
 - name: Generate certificate for all proxied domains
   command:
-    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d neko.tormakristof.eu
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --standalone -d neko.tormakristof.eu
+
+- name: Enable and start haproxy
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
 
 - name: Copy certbot cronjob
   copy:
