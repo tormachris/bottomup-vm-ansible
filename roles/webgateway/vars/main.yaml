@@ -10,6 +10,8 @@ proxy:
   - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev}
   - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev}
   - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev}
+  - {domain: certauth.fs.tormakris.dev, ip: adfs.intra.tormakris.dev}
+
 
 static:
   - {domain: kmlabz.com, directory: /var/www/kmlabz.com, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
