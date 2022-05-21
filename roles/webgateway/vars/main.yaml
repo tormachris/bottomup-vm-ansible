@@ -14,10 +14,8 @@ proxy:
 
 
 static:
-  - {domain: kmlabz.com, directory: /var/www/kmlabz.com, repo: "https://git.kmlabz.com/kmlabz/homepage.git"}
+  []
 
 redirect:
-  - {domain: tormakristof.eu, destination: "https://www.tormakristof.eu"}
-  - {domain: tormakris.dev, destination: "https://www.tormakristof.eu"}
-  - {domain: torma.xyz, destination: "https://www.tormakristof.eu"}
+  []
 ...
