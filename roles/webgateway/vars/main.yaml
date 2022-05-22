@@ -15,7 +15,7 @@ proxy:
 
 
 static:
-  - {domain: tormakristof.eu, directory: /var/www/tormakristof.eu, repo: "https://github.com/tormachris/localroot-tormakristof.eu.git"}
+  []
 
 redirect:
   []

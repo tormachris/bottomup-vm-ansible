@@ -1,5 +1,6 @@
 #!/bin/bash
 # {{ansible_managed}}
+certbot renew --nginx --cert-name tormakristof.eu
 {% for proxysite in proxy %}
 certbot renew --nginx --cert-name {{ proxysite.domain }}
 {% endfor %}
