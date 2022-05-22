@@ -4,7 +4,7 @@ proxy:
   - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev}
   - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev}
   - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev}
-  - {domain: keycloak.kmlabz.com, ip: keycloak.intra.tormakris.dev}
+  - {domain: matrix.kmlabz.com, ip: matrix.intra.tormakris.dev}
   - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev}
   - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev}
   - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev}

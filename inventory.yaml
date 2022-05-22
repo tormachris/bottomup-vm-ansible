@@ -5,7 +5,7 @@ all:
       hosts:
         neko:
         drone:
-        keycloak:
+        matrix:
         swagger:
         drone-runner:
         smtp:
@@ -21,7 +21,7 @@ all:
         nextcloud:
         backup:
     dockerwebhosts:
-        keycloak:
+        matrix:
         drone:
         swagger:
         guacamole:
