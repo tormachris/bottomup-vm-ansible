@@ -1,3 +1,8 @@
 ---
 ansible_host: matrix.intra.tormakris.dev
+webserver:
+  - domain: "_"
+    port: 8080
+  - domain: "chat.tormakristof.eu"
+    port: 8181
 ...
