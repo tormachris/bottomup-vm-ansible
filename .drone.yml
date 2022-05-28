@@ -1,0 +1,27 @@
+kind: pipeline
+type: docker
+name: ansible
+
+steps:
+- name: check ansible syntax
+  image: plugins/ansible:3
+  settings:
+    playbook: nightly.yaml
+    galaxy: requirements.yaml
+    inventory: inventory.yaml
+    syntax_check: true
+
+- name: run playbook in check mode
+  image: plugins/ansible:3
+  settings:
+    playbook: nightly.yaml
+    galaxy: requirements.yaml
+    inventory: inventory.yaml
+    check: true
+
+- name: ansible nightly run
+  image: plugins/ansible:3
+  settings:
+    playbook: nightly.yaml
+    galaxy: requirements.yaml
+    inventory: inventory.yaml

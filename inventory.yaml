@@ -21,8 +21,18 @@ all:
         nextcloud:
         backup:
     dockerwebhosts:
+      hosts:
         matrix:
         drone:
+        swagger:
+        guacamole:
+        bitwarden:
+        nexus:
+        nextcloud:
+        neko:
+    nightlydocker:
+      hosts:
+        matrix:
         swagger:
         guacamole:
         bitwarden:

@@ -1,0 +1,35 @@
+---
+- name: "Deploy basic webhost with Docker"
+  hosts: nightlydocker
+  roles:
+    - netplan
+    - common
+    - docker
+    - webserver
+    - internalsmtp
+
+- name: "Setup neko"
+  hosts: neko
+  roles:
+    - common
+    - docker
+    - neko
+    - customfirewall
+    - internalsmtp
+
+- name: "Deploy smtpgateway to smtp.intra.tormakris.dev"
+  hosts: smtp
+  roles:
+    - netplan
+    - common
+    - smtpgateway
+
+- name: "Deploy backup server"
+  hosts: backup
+  roles:
+    - netplan
+    - common
+    - internalsmtp
+    - backupscript
+    - backuphost
+...
