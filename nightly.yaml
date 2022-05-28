@@ -4,7 +4,6 @@
   roles:
     - netplan
     - common
-    - docker
     - webserver
     - internalsmtp
 
@@ -12,7 +11,6 @@
   hosts: neko
   roles:
     - common
-    - docker
     - neko
     - customfirewall
     - internalsmtp
