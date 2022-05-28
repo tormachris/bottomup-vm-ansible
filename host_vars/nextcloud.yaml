@@ -1,3 +1,7 @@
 ---
 ansible_host: nextcloud.intra.tormakris.dev
+webserver:
+  - domain: "nextcloud.tormakristof.eu"
+    port: 8080
+    bigrequests: true
 ...

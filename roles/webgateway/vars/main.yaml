@@ -1,17 +1,16 @@
 proxy:
-  - {domain: bitwarden.tormakristof.eu, ip: bitwarden.intra.tormakris.dev}
-  - {domain: nextcloud.tormakristof.eu, ip: nextcloud.intra.tormakris.dev}
-  - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev}
-  - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev}
-  - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev}
-  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev}
-  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev}
-  - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev}
-  - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev}
-  - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev}
-  - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev}
-  - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev}
-  - {domain: certauth.fs.tormakris.dev, ip: adfs.intra.tormakris.dev}
+  - {domain: bitwarden.tormakristof.eu, ip: bitwarden.intra.tormakris.dev, bigrequests: false}
+  - {domain: nextcloud.tormakristof.eu, ip: nextcloud.intra.tormakris.dev, bigrequests: true}
+  - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev, bigrequests: false}
+  - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev, bigrequests: false}
+  - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev, bigrequests: false}
+  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: false}
+  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: false}
+  - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
+  - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
+  - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev, bigrequests: false}
+  - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
+  - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
 
 static:
   []
