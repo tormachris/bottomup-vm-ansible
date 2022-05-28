@@ -7,8 +7,8 @@ steps:
 - name: setup environment
   image: ubuntu
   environment:
-    SSH_USER:
-      from_secret: SSH_USER
+    SSH_KEY:
+      from_secret: SSH_KEY
   commands:
     - echo "$PWD"
     - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
