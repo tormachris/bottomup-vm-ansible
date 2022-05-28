@@ -11,6 +11,8 @@ proxy:
   - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev, bigrequests: false}
   - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
   - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
+  - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
+  - {domain: prometheus.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
 
 static:
   []
