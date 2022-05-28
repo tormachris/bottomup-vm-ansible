@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: docker
 name: ansible
@@ -9,6 +10,7 @@ steps:
     SSH_USER:
       from_secret: SSH_USER
   commands:
+    - echo "$PWD"
     - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
 
 - name: check ansible syntax
@@ -39,3 +41,4 @@ steps:
     playbook: nightly.yaml
     galaxy: requirements.yaml
     inventory: inventory.yaml
+...
