@@ -29,7 +29,6 @@ all:
         bitwarden:
         nexus:
         nextcloud:
-        neko:
     nightlydocker:
       hosts:
         matrix:
@@ -38,5 +37,4 @@ all:
         bitwarden:
         nexus:
         nextcloud:
-        neko:
 ...
