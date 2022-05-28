@@ -2,4 +2,5 @@ webserver:
   - domain: "_"
     port: 8080
     bigrequests: false
+    https: false
 ...

@@ -4,7 +4,9 @@ webserver:
   - domain: "nexus.kmlabz.com"
     port: 8080
     bigrequests: true
+    https: false
   - domain: "registry.kmlabz.com"
     port: 4269
     bigrequests: true
+    https: false
 ...
