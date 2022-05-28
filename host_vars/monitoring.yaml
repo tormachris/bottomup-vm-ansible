@@ -1,10 +1,13 @@
 ---
 ansible_host: monitoring.intra.tormakris.dev
 webserver:
-  - domain: "_"
+  - domain: "prometheus.tormakristof.eu"
     port: 8080
     bigrequests: false
   - domain: "grafana.tormakristof.eu"
+    port: 8181
+    bigrequests: false
+  - domain: "alertmanager.tormakristof.eu"
     port: 8181
     bigrequests: false
 ...
