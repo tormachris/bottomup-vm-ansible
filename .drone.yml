@@ -3,6 +3,14 @@ type: docker
 name: ansible
 
 steps:
+- name: setup environment
+  image: ubuntu
+  environment:
+    SSH_USER:
+      from_secret: SSH_USER
+  commands:
+    - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
+
 - name: check ansible syntax
   image: plugins/ansible:3
   settings:
@@ -13,6 +21,9 @@ steps:
 
 - name: run playbook in check mode
   image: plugins/ansible:3
+  environment:
+    ANSIBLE_HOST_KEY_CHECKING: "False"
+    ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
   settings:
     playbook: nightly.yaml
     galaxy: requirements.yaml
@@ -21,6 +32,9 @@ steps:
 
 - name: ansible nightly run
   image: plugins/ansible:3
+  environment:
+    ANSIBLE_HOST_KEY_CHECKING: "False"
+    ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
   settings:
     playbook: nightly.yaml
     galaxy: requirements.yaml
