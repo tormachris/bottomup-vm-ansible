@@ -7,4 +7,5 @@
 - include_tasks: user-ops.yaml
 - include_tasks: ssh-security-settings.yaml
 - include_tasks: timesync.yaml
+- include_tasks: node-exporter.yaml
 ...

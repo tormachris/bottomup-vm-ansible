@@ -10,12 +10,18 @@ firewall:
   - port: "https"
     proto: tcp
     interface: "eth1"
-  - port: "ssh"
-    proto: tcp
-    interface: "eth1"
   - port: "59000:59049"
     proto: udp
     interface: "eth1"
+  - port: "9100"
+    proto: tcp
+    interface: "eth0"
+  - port: "9101"
+    proto: tcp
+    interface: "eth0"
+  - port: "9706"
+    proto: tcp
+    interface: "eth0"
 netplan:
   default_gateway: ""
   additionalinterfaces:

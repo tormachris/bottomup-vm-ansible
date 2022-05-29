@@ -1,3 +1,5 @@
 {
-    "userland-proxy": false
+    "userland-proxy": false,
+    "metrics-addr" : "0.0.0.0:9323",
+    "experimental" : true
 }

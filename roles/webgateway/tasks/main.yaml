@@ -129,4 +129,18 @@
     path: "{{ item.directory }}/.git"
     state: absent
   with_items: "{{ static }}"
+
+- name: "Install nginx exporter"
+  apt:
+    update_cache: yes
+    state: present
+    name:
+     - prometheus-nginx-exporter
+
+- name: Allow nginx exporter via ufw
+  community.general.ufw:
+    rule: allow
+    port: 9113
+    proto: tcp
+    src: 192.168.69.0/24
 ...
