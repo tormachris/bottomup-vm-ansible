@@ -6,6 +6,7 @@
     name:
      - docker.io
      - docker-compose
+     - cadvisor
 
 - name: Disable userland proxy
   copy:
@@ -21,6 +22,12 @@
     state: restarted
     enabled: yes
 
+- name: Enable and restart cadvisor
+  service:
+    name: cadvisor
+    state: restarted
+    enabled: yes
+
 - name: "Add service user to docker group"
   ansible.builtin.user:
     name: service-user
@@ -31,7 +38,7 @@
 - name: Allow docker exporter via ufw
   community.general.ufw:
     rule: allow
-    port: 9323
+    port: "4194"
     proto: tcp
     src: 192.168.69.0/24
 ...
