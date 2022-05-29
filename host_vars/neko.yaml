@@ -16,9 +16,6 @@ firewall:
   - port: "9101"
     proto: tcp
     interface: "eth0"
-  - port: "9706"
-    proto: tcp
-    interface: "eth0"
 netplan:
   default_gateway: ""
   additionalinterfaces:
