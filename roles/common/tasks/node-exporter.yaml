@@ -12,4 +12,10 @@
     port: 9100
     proto: tcp
     src: 192.168.69.0/24
+
+- name: Enable and restart exporter daemon
+  service:
+    name: prometheus-node-exporter
+    state: restarted
+    enabled: yes
 ...
