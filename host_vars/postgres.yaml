@@ -5,6 +5,9 @@ firewall:
   - port: "5432"
     proto: tcp
     interface: "eth0"
+  - port: "9187"
+    proto: tcp
+    interface: "eth0"
 backup:
   folder: "/var/lib/postgresql/backup"
   tarfolder: "backup"

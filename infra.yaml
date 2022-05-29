@@ -13,7 +13,6 @@
   roles:
     - netplan
     - common
-    - customfirewall
     - backupscript
     - customfirewall
 
