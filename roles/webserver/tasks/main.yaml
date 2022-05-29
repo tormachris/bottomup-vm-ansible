@@ -47,6 +47,14 @@
     proto: tcp
     src: 192.168.69.0/24
 
+- name: Copy default nginx config
+  ansible.builtin.copy:
+    src: prometheus-nginx-exporter
+    dest: /etc/default/prometheus-nginx-exporter
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: Enable and restart exporter daemon
   service:
     name: prometheus-nginx-exporter
