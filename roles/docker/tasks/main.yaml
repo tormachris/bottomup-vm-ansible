@@ -6,7 +6,6 @@
     name:
      - docker.io
      - docker-compose
-     - cadvisor
 
 - name: Disable userland proxy
   copy:
@@ -19,12 +18,6 @@
 - name: Enable and restart Docker daemon
   service:
     name: docker
-    state: restarted
-    enabled: yes
-
-- name: Enable and restart cadvisor
-  service:
-    name: cadvisor
     state: restarted
     enabled: yes
 
