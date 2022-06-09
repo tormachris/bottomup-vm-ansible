@@ -1,4 +1,4 @@
 ---
-postfix_relayhost: 'smtp-relay.gmail.com'
+postfix_relayhost: 'tormakris-dev.mail.protection.outlook.com'
 external_domain: 'tormakris.dev'
 ...
