@@ -1,5 +1,0 @@
-[Unit]
-Description=Script based backup for VMs
-
-[Install]
-WantedBy=default.target

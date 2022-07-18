@@ -50,50 +50,10 @@
 - name: "Generate certbot script"
   ansible.builtin.template:
     src: certbot.sh
-    dest: /opt/certbot.sh
+    dest: /etc/cron.weekly/certbot.sh
     owner: root
     group: root
     mode: '0700'
-
-- name: Copy certbot-script.service to target
-  copy:
-    src: certbot-script.service
-    dest: /usr/lib/systemd/system/certbot-script.service
-    mode: 644
-    owner: root
-
-- name: Copy certbot.target to target
-  copy:
-    src: certbot.target
-    dest: /usr/lib/systemd/system/certbot.target
-    mode: 644
-    owner: root
-
-- name: Copy certbot.timer to target
-  copy:
-    src: certbot.timer
-    dest: /usr/lib/systemd/system/certbot.timer
-    mode: 644
-    owner: root
-
-- name: Enable certbot-script.service and reload systemd daemon
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    daemon_reload: yes
-    name: certbot-script.service
-
-- name: Enable certbot.target
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    name: certbot.target
-
-- name: Enable certbot.timer
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    name: certbot.timer
 
 - name: "Generate nginx configuration"
   ansible.builtin.template:

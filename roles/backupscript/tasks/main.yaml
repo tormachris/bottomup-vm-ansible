@@ -2,53 +2,10 @@
 - name: "Generate backupscript"
   ansible.builtin.template:
     src: backupscript.sh
-    dest: /opt/backupscript.sh
+    dest: /etc/cron.weekly/backupscript.sh
     owner: root
     group: root
     mode: '0700'
-
-- name: Copy backup-script.service to target
-  copy:
-    src: backup-script.service
-    dest: /usr/lib/systemd/system/backup-script.service
-    mode: 0644
-    owner: root
-    group: root
-
-- name: Copy backup.target to target
-  copy:
-    src: backup.target
-    dest: /usr/lib/systemd/system/backup.target
-    mode: 0644
-    owner: root
-    group: root
-
-- name: Copy backup.timer to target
-  copy:
-    src: backup.timer
-    dest: /usr/lib/systemd/system/backup.timer
-    mode: 0644
-    owner: root
-    group: root
-
-- name: Enable backup-script.service and reload systemd daemon
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    daemon_reload: yes
-    name: backup-script.service
-
-- name: Enable backup.target
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    name: backup.target
-
-- name: Enable backup.timer
-  when: ansible_service_mgr == "systemd"
-  ansible.builtin.systemd:
-    enabled: yes
-    name: backup.timer
 
 - name: Create .ssh directory of root user
   file:
