@@ -13,6 +13,7 @@ proxy:
   - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
   - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
   - {domain: sharepoint.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
+  - {domain: onedrive.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
 
 static:
   []
