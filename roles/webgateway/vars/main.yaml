@@ -14,6 +14,7 @@ proxy:
   - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
   - {domain: sharepoint.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
   - {domain: onedrive.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
+  - {domain: youtube.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: true}
 
 static:
   []
