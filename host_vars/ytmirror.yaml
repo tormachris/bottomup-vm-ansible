@@ -1,0 +1,8 @@
+---
+ansible_host: ytmirror.intra.tormakris.dev
+webserver:
+  - domain: "yt.tormakristof.eu"
+    port: 8080
+    bigrequests: false
+    https: false
+...
