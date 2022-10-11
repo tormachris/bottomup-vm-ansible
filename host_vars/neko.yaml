@@ -20,7 +20,12 @@ netplan:
   default_gateway: ""
   additionalinterfaces:
     - name: "eth1"
-      dhcp4: true
-      dhcp6: true
+      dhcp4: false
+      dhcp6: false
       denydns: true
+      addresses:
+        - '152.66.211.42/24'
+        - '2001:738:2001:207f:0:211:42:0/64'
+      gateway4: '152.66.211.254'
+      gateway6: 'fe80::'
 ...
