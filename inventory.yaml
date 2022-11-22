@@ -6,7 +6,6 @@ all:
         neko:
         drone:
         matrix:
-        swagger:
         drone-runner:
         smtp:
         webgateway:
@@ -26,7 +25,6 @@ all:
       hosts:
         matrix:
         drone:
-        swagger:
         guacamole:
         bitwarden:
         nexus:
@@ -36,7 +34,6 @@ all:
     nightlydocker:
       hosts:
         matrix:
-        swagger:
         guacamole:
         bitwarden:
         nexus:
