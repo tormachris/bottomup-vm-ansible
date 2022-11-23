@@ -1,0 +1,3 @@
+machine tormakris.jfrog.io
+login apt
+password {{ artifactory_password }}

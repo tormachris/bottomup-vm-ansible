@@ -4,8 +4,8 @@ proxy:
   - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev, bigrequests: false}
   - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev, bigrequests: false}
   - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev, bigrequests: false}
-  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: false}
-  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: false}
+  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true}
+  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true}
   - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
   - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
   - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev, bigrequests: false}
@@ -15,6 +15,7 @@ proxy:
   - {domain: sharepoint.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
   - {domain: onedrive.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
   - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: true}
+  - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true}
 
 static:
   []

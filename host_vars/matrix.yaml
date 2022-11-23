@@ -3,10 +3,14 @@ ansible_host: matrix.intra.tormakris.dev
 webserver:
   - domain: "matrix.tormakristof.eu"
     port: 8080
-    bigrequests: false
+    bigrequests: true
     https: false
   - domain: "chat.tormakristof.eu"
     port: 8181
-    bigrequests: false
+    bigrequests: true
     https: false
+firewall:
+  - port: "9000"
+    proto: tcp
+    interface: "eth0"
 ...

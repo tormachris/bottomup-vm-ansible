@@ -2,7 +2,11 @@
 ansible_host: mastodon.intra.tormakris.dev
 webserver:
   - domain: "mastodon.tormakristof.eu"
-    port: 8080
-    bigrequests: false
+    port: 3000
+    bigrequests: true
     https: false
+    additionallocations:
+      - location: "/api/v1/streaming"
+        https: false
+        port: 4000
 ...

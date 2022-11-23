@@ -1,4 +1,21 @@
 ---
+- name: "Use custom Ubuntu mirror"
+  replace:
+    path: /etc/apt/sources.list
+    regexp: 'http://hu.archive.ubuntu.com'
+    replace: 'https://tormakris.jfrog.io/artifactory/ubuntu-mirror'
+    backup: yes
+
+- name: "Get JFrog password from local environment variable"
+  ansible.builtin.set_fact:
+    artifactory_password: "{{ lookup('env', 'ARTIFACTORY_APT_PASSWORD') }}"
+  delegate_to: localhost
+
+- name: "Render JFrog credentials configuration"
+  template:
+    src: jrog.conf.template
+    dest: /etc/apt/auth.conf.d/jfrog.conf
+
 - name: "Remove Ubuntu bloatware"
   apt: 
     state: absent
@@ -35,4 +52,5 @@
      - tcpdump
      - xxd
      - git
+     - ncdu
 ...
