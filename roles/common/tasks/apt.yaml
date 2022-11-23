@@ -13,7 +13,7 @@
 
 - name: "Render JFrog credentials configuration"
   template:
-    src: jrog.conf.template
+    src: jfrog.conf.template
     dest: /etc/apt/auth.conf.d/jfrog.conf
 
 - name: "Remove Ubuntu bloatware"
