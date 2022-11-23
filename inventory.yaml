@@ -15,6 +15,7 @@ all:
         postgres:
         monitoring:
         ytmirror:
+        mastodon:
     mckay:
       hosts:
         guacamole:
@@ -31,6 +32,7 @@ all:
         nextcloud:
         monitoring:
         ytmirror:
+        mastodon:
     nightlydocker:
       hosts:
         matrix:
@@ -40,4 +42,5 @@ all:
         nextcloud:
         monitoring:
         ytmirror:
+        mastodon:
 ...

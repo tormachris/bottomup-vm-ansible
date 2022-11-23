@@ -1,0 +1,8 @@
+---
+ansible_host: mastodon.intra.tormakris.dev
+webserver:
+  - domain: "mastodon.tormakristof.eu"
+    port: 8080
+    bigrequests: false
+    https: false
+...
