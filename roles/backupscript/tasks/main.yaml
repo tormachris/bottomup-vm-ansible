@@ -2,7 +2,7 @@
 - name: "Generate backupscript"
   ansible.builtin.template:
     src: backupscript.sh
-    dest: /etc/cron.weekly/backupscript.sh
+    dest: /etc/cron.weekly/backupscript
     owner: root
     group: root
     mode: '0700'
