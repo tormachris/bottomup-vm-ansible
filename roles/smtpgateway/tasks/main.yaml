@@ -33,13 +33,19 @@
     name:
      - prometheus-postfix-exporter
 
-- name: Copy default nginx config
+- name: Copy exporter config
   ansible.builtin.copy:
     src: prometheus-postfix-exporter
     dest: /etc/default/prometheus-postfix-exporter
     owner: root
     group: root
     mode: '0644'
+
+- name: Add the prometheus user to postdrop group
+  ansible.builtin.user:
+    name: prometheus
+    groups: postdrop
+    append: yes
 
 - name: Enable and restart exporter daemon
   service:
