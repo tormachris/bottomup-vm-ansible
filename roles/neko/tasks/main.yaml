@@ -27,9 +27,13 @@
     name:
      - python3-certbot
 
-- name: Generate certificate for all proxied domains
+- name: Generate certificate for Neko domain
   command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --standalone -d neko.tormakristof.eu
+
+- name: Generate certificate for TURN domain
+  command:
+    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --standalone -d turn.tormakristof.eu
 
 - name: Enable and start haproxy
   service:

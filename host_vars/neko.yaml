@@ -13,6 +13,15 @@ firewall:
   - port: "59000:59049"
     proto: udp
     interface: "eth1"
+  - port: "3478"
+    proto: tcp
+    interface: "eth1"
+  - port: "3478"
+    proto: any
+    interface: "eth1"
+  - port: "5349"
+    proto: any
+    interface: "eth1"
   - port: "9101"
     proto: tcp
     interface: "eth0"
