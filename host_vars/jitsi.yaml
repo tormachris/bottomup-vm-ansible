@@ -5,4 +5,17 @@ webserver:
     port: 8080
     bigrequests: false
     https: true
+firewall:
+  - port: "ssh"
+    proto: tcp
+    interface: "eth0"
+  - port: "https"
+    proto: tcp
+    interface: "eth0"
+  - port: "4443"
+    proto: tcp
+    interface: "eth0"
+  - port: "10000"
+    proto: tcp
+    interface: "eth0"
 ...

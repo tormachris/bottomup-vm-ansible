@@ -36,7 +36,6 @@ all:
         ytmirror:
         mastodon:
         librespeed:
-        jitsi:
     nightlydocker:
       hosts:
         matrix:
@@ -48,5 +47,4 @@ all:
         ytmirror:
         mastodon:
         librespeed:
-        jitsi:
 ...

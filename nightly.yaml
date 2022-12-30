@@ -6,6 +6,14 @@
     - webserver
     - internalsmtp
 
+- name: "Deploy Jitsi Meet server"
+  hosts: jitsi
+  roles:
+    - common
+    - webserver
+    - internalsmtp
+    - customfirewall
+
 - name: "Setup neko"
   hosts: neko
   roles:
