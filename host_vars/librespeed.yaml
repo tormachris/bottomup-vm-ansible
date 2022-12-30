@@ -1,0 +1,8 @@
+---
+ansible_host: librespeed.intra.tormakris.dev
+webserver:
+  - domain: "speedtest.tormakristof.eu"
+    port: 8080
+    bigrequests: true
+    https: false
+...

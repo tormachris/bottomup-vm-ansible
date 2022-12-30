@@ -1,0 +1,8 @@
+---
+ansible_host: jitsi.intra.tormakris.dev
+webserver:
+  - domain: "jitsi.tormakristof.eu"
+    port: 8080
+    bigrequests: false
+    https: true
+...

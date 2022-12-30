@@ -22,6 +22,8 @@ all:
         bitwarden:
         nextcloud:
         backup:
+        jitsi:
+        librespeed:
     dockerwebhosts:
       hosts:
         matrix:
@@ -33,6 +35,8 @@ all:
         monitoring:
         ytmirror:
         mastodon:
+        librespeed:
+        jitsi:
     nightlydocker:
       hosts:
         matrix:
@@ -43,4 +47,6 @@ all:
         monitoring:
         ytmirror:
         mastodon:
+        librespeed:
+        jitsi:
 ...

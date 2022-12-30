@@ -8,14 +8,14 @@ proxy:
   - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true}
   - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
   - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
-  - {domain: swagger.kmlabz.com, ip: swagger.intra.tormakris.dev, bigrequests: false}
   - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
   - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
   - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
-  - {domain: sharepoint.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
-  - {domain: onedrive.tormakristof.eu, ip: sharepoint.intra.tormakris.dev, bigrequests: true}
   - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: true}
   - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true}
+  - {domain: jitsi.tormakristof.eu, ip: jitsi.intra.tormakris.dev, bigrequests: false}
+  - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true}
+
 
 static:
   []
