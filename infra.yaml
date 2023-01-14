@@ -8,16 +8,6 @@
     - webserver
     - internalsmtp
 
-- name: "Deploy Jitsi Meet server"
-  hosts: jitsi
-  roles:
-    - netplan
-    - common
-    - docker
-    - webserver
-    - internalsmtp
-    - customfirewall
-
 - name: "Deploy database server base"
   hosts: postgres
   roles:

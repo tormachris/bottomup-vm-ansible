@@ -22,7 +22,6 @@ all:
         bitwarden:
         nextcloud:
         backup:
-        jitsi:
         librespeed:
     dockerwebhosts:
       hosts:
