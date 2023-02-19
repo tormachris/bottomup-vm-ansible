@@ -13,7 +13,6 @@ proxy:
   - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
   - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: true}
   - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true}
-  - {domain: jitsi.tormakristof.eu, ip: jitsi.intra.tormakris.dev, bigrequests: false}
   - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true}
 
 

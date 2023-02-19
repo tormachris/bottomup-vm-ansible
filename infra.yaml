@@ -66,4 +66,13 @@
     - internalsmtp
     - backupscript
     - backuphost
+
+- name: "Deploy OpenVPN server"
+  hosts: openvpn
+  roles:
+    - netplan
+    - common
+    - openvpn
+    - customfirewall
+    - internalsmtp
 ...

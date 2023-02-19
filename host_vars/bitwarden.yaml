@@ -4,5 +4,5 @@ webserver:
   - domain: "bitwarden.tormakristof.eu"
     port: 8080
     bigrequests: false
-    https: true
+    https: false
 ...
