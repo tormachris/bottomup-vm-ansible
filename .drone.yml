@@ -29,6 +29,8 @@ steps:
     ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
     ARTIFACTORY_APT_PASSWORD:
       from_secret: ARTIFACTORY_APT_PASSWORD
+    CLOUDFLARE_TOKEN:
+      from_secret: CLOUDFLARE_TOKEN
   settings:
     playbook: nightly.yaml
     galaxy: requirements.yaml
@@ -43,6 +45,8 @@ steps:
     ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
     ARTIFACTORY_APT_PASSWORD:
       from_secret: ARTIFACTORY_APT_PASSWORD
+    CLOUDFLARE_TOKEN:
+      from_secret: CLOUDFLARE_TOKEN
   settings:
     playbook: nightly.yaml
     galaxy: requirements.yaml
