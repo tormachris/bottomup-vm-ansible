@@ -53,4 +53,10 @@
 - name: Reload ufw
   community.general.ufw:
     state: reloaded
+
+- name: Apply custom ufw rules
+  community.general.ufw:
+    rule: allow
+    direction: "in"
+    interface: tun+
 ...
