@@ -48,7 +48,7 @@
 
 - name: "Generate certbot script"
   ansible.builtin.template:
-    src: certbot.shb
+    src: certbot.sh
     dest: /etc/cron.weekly/certbot
     owner: root
     group: root
