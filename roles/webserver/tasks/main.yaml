@@ -12,7 +12,7 @@
     name:
      - nginx
      - python3-certbot
-     - python3-certbot-nginx
+     - python3-certbot-dns-cloudflare
 
 - name: Copy default nginx config
   ansible.builtin.copy:
@@ -28,14 +28,24 @@
     state: restarted
     enabled: yes
 
+- name: "Get Cloudflare token from local environment variable"
+  ansible.builtin.set_fact:
+    cloudflare_token: "{{ lookup('env', 'CLOUDFLARE_TOKEN') }}"
+  delegate_to: localhost
+
+- name: "Render Cloudflare Certbot plugin configuration"
+  ansible.builtin.template:
+    src: cf-creds.ini
+    dest: /root/cf-creds.ini
+
 - name: Generate certificate for all server instances
   ansible.builtin.command:
-    cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
+    cmd: certbot certonly --non-interactive --agree-tos -m iam@tormakristof.eu --dns-cloudflare --dns-cloudflare-credentials /root/cf-creds.ini -d {{item.domain}}
   with_items: "{{ webserver }}"
 
 - name: "Generate certbot script"
   ansible.builtin.template:
-    src: certbot.sh
+    src: certbot.shb
     dest: /etc/cron.weekly/certbot
     owner: root
     group: root
