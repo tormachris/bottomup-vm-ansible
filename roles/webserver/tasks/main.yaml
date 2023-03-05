@@ -1,4 +1,10 @@
 ---
+- name: Allow https port via ufw
+  community.general.ufw:
+    rule: allow
+    port: https
+    src: 192.168.69.0/24
+
 - name: "Install Nginx via apt"
   apt:
     update_cache: yes
@@ -62,7 +68,7 @@
     proto: tcp
     src: 192.168.69.0/24
 
-- name: Copy default nginx config
+- name: Copy nginx exporter config
   ansible.builtin.copy:
     src: prometheus-nginx-exporter
     dest: /etc/default/prometheus-nginx-exporter
@@ -75,10 +81,4 @@
     name: prometheus-nginx-exporter
     state: restarted
     enabled: yes
-
-- name: Allow https port via ufw
-  community.general.ufw:
-    rule: allow
-    port: https
-    src: 192.168.69.0/24
 ...

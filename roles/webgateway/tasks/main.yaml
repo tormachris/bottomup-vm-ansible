@@ -97,7 +97,7 @@
     name:
      - prometheus-nginx-exporter
 
-- name: Copy default nginx config
+- name: Copy nginx exporter config
   ansible.builtin.copy:
     src: prometheus-nginx-exporter
     dest: /etc/default/prometheus-nginx-exporter
