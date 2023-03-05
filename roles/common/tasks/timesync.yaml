@@ -1,13 +1,13 @@
 ---
 - name: Setup timesync config
-  template:
+  ansible.builtin.template:
     src: timesyncd.conf.template
     dest: /etc/systemd/timesyncd.conf
   notify: run Timedatectl
   when: ansible_service_mgr == "systemd"
 
 - name: set Timezone
-  timezone: name={{ timedatectl_timezone }}
+  ansible.builtin.timezone: name={{ timedatectl_timezone }}
   when: ansible_service_mgr == "systemd"
 
 - name: Reastart timesyncd to apply changes

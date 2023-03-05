@@ -1,30 +1,30 @@
 ---
 - name: Disable password authentication
-  replace:
+  ansible.builtin.replace:
     path: /etc/ssh/sshd_config
     regexp: 'PasswordAuthentication yes'
     replace: 'PasswordAuthentication no'
 
 - name: Disable root authentication
-  replace:
+  ansible.builtin.replace:
     path: /etc/ssh/sshd_config
     regexp: '#PermitRootLogin prohibit-password'
     replace: 'PermitRootLogin no'
 
 - name: Disable X11 forwarding
-  replace:
+  ansible.builtin.replace:
     path: /etc/ssh/sshd_config
     regexp: 'X11Forwarding yes'
     replace: 'X11Forwarding no'
 
 - name: Explicitly only listen on ipv4
-  replace:
+  ansible.builtin.replace:
     path: /etc/ssh/sshd_config
     regexp: '#AddressFamily any'
     replace: 'AddressFamily inet'
 
 - name: Check if AllowUsers is defined
-  lineinfile:
+  ansible.builtin.lineinfile:
     state: absent
     path: /etc/ssh/sshd_config
     regexp: "^AllowUsers"
@@ -33,14 +33,14 @@
   register: checkallowusers
 
 - name: Define AllowUsers if undefined
-  lineinfile:
+  ansible.builtin.lineinfile:
     state: present
     path: /etc/ssh/sshd_config
     line: "AllowUsers tormakris ansible service-user"
   when: checkallowusers.found == 0
 
 - name: "Restart sshd"
-  service:
+  ansible.builtin.service:
     name: sshd
     state: restarted
 ...

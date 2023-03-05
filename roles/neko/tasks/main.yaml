@@ -1,13 +1,13 @@
 ---
 - name: "Install haproxy via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
      - haproxy
 
 - name: Copy haproxy configuration
-  copy:
+  ansible.builtin.copy:
     src: haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
@@ -15,34 +15,34 @@
     group: root
 
 - name: Enable and stop haproxy
-  service:
+  ansible.builtin.service:
     name: haproxy
     state: stopped
     enabled: yes
 
 - name: "Install certbot via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
      - python3-certbot
 
 - name: Generate certificate for Neko domain
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --standalone -d neko.tormakristof.eu
 
 - name: Generate certificate for TURN domain
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --standalone -d turn.tormakristof.eu
 
 - name: Enable and start haproxy
-  service:
+  ansible.builtin.service:
     name: haproxy
     state: started
     enabled: yes
 
 - name: Copy certbot cronjob
-  copy:
+  ansible.builtin.copy:
     src: certbot
     dest: /etc/cron.weekly/certbot
     mode: 0755
@@ -58,7 +58,7 @@
     state: enabled
 
 - name: "Install haproxy exporter"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:

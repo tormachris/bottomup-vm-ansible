@@ -19,14 +19,14 @@
     append: yes
 
 - name: Create .ssh directory of root user
-  file:
+  ansible.builtin.file:
     path: /home/ansible/.ssh
     state: directory
     owner: ansible
     group: ansible
 
 - name: Copy authorized_keys
-  copy:
+  ansible.builtin.copy:
     src: authorized_keys
     dest: /home/ansible/.ssh/authorized_keys
     mode: 0600
@@ -34,7 +34,7 @@
     group: ansible
 
 - name: Check if ansible is already nopasswd in sudoers
-  lineinfile:
+  ansible.builtin.lineinfile:
     state: absent
     path: /etc/sudoers
     regexp: "^ansible"
@@ -43,7 +43,7 @@
   register: checkallowusers
 
 - name: Define ansible nopasswd in sudoers
-  lineinfile:
+  ansible.builtin.lineinfile:
     state: present
     path: /etc/sudoers
     line: "ansible ALL=(ALL:ALL) NOPASSWD:ALL"

@@ -1,6 +1,6 @@
 ---
 - name: "Use custom Ubuntu mirror"
-  replace:
+  ansible.builtin.replace:
     path: /etc/apt/sources.list
     regexp: 'http://hu.archive.ubuntu.com'
     replace: 'https://tormakris.jfrog.io/artifactory/ubuntu-mirror'
@@ -12,25 +12,25 @@
   delegate_to: localhost
 
 - name: "Render JFrog credentials configuration"
-  template:
+  ansible.builtin.template:
     src: jfrog.conf.template
     dest: /etc/apt/auth.conf.d/jfrog.conf
 
 - name: "Remove Ubuntu bloatware"
-  apt: 
+  ansible.builtin.apt: 
     state: absent
     name: ubutu-server
     autoremove: yes
 
 - name: "Update machine"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     upgrade: "yes"
     autoclean: yes
     autoremove: yes
 
 - name: "Install my favourite applications"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:

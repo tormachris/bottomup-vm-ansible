@@ -1,16 +1,16 @@
 ---
 - name: "remove cloudinit config"
-  file:
+  ansible.builtin.file:
     path: /etc/netplan/50-cloud-init.yaml
     state: absent
 
 - name: "remove installer config"
-  file:
+  ansible.builtin.file:
     path: /etc/netplan/00-installer-config.yaml
     state: absent
 
 - name: "install static config"
-  template:
+  ansible.builtin.template:
     src: templates/netplan.yaml
     dest: /etc/netplan/00-static.yaml
   notify: netplanapply

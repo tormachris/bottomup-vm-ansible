@@ -1,6 +1,6 @@
 ---
 - name: "Install nginx via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -27,23 +27,23 @@
     mode: '0644'
 
 - name: Enable and restart nginx daemon
-  service:
+  ansible.builtin.service:
     name: nginx
     state: restarted
     enabled: yes
 
 - name: Generate certificate for all proxied domains
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ proxy }}"
 
 - name: Generate certificate for all static sites
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ static }}"
 
 - name: Generate certificate for all redirect sites
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ redirect }}"
 
@@ -64,11 +64,11 @@
     mode: '0644'
 
 - name: Validate nginx configuration
-  command:
+  ansible.builtin.command:
     cmd: nginx -t
 
 - name: Reload nginx after configuration change
-  service:
+  ansible.builtin.service:
     name: nginx
     state: reloaded
 
@@ -91,7 +91,7 @@
   with_items: "{{ static }}"
 
 - name: "Install nginx exporter"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -106,7 +106,7 @@
     mode: '0644'
 
 - name: Enable and restart exporter daemon
-  service:
+  ansible.builtin.service:
     name: prometheus-nginx-exporter
     state: restarted
     enabled: yes

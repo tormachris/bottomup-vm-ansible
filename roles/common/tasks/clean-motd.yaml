@@ -1,6 +1,6 @@
 ---
 - name: clean motd
-  file:
+  ansible.builtin.file:
     state: touch
     owner: tormakris
     group: tormakris

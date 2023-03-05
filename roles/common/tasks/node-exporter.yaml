@@ -1,6 +1,6 @@
 ---
 - name: "Install node exporter"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -14,7 +14,7 @@
     src: 192.168.69.0/24
 
 - name: Enable and restart exporter daemon
-  service:
+  ansible.builtin.service:
     name: prometheus-node-exporter
     state: restarted
     enabled: yes

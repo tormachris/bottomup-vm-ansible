@@ -6,7 +6,7 @@
     src: 192.168.69.0/24
 
 - name: "Install Nginx via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -23,13 +23,13 @@
     mode: '0644'
 
 - name: Enable and restart nginx daemon
-  service:
+  ansible.builtin.service:
     name: nginx
     state: restarted
     enabled: yes
 
 - name: Generate certificate for all server instances
-  command:
+  ansible.builtin.command:
     cmd: certbot certonly --non-interactive --agree-tos -m tormakristof@tormakristof.eu --nginx -d {{item.domain}}
   with_items: "{{ webserver }}"
 
@@ -50,12 +50,12 @@
     mode: '0644'
 
 - name: Reload nginx daemon
-  service:
+  ansible.builtin.service:
     name: nginx
     state: reloaded
 
 - name: "Install nginx exporter"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -77,7 +77,7 @@
     mode: '0644'
 
 - name: Enable and restart exporter daemon
-  service:
+  ansible.builtin.service:
     name: prometheus-nginx-exporter
     state: restarted
     enabled: yes

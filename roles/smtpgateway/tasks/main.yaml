@@ -1,21 +1,21 @@
 ---
 - name: "Install Postfix via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
      - postfix
 
 - name: Install Postfix mail gateway config
-  template:
+  ansible.builtin.template:
     src: templates/main.cf
     dest: /etc/postfix/main.cf
 
 - name: Build /etc/mailname
-  shell: hostname --fqdn > /etc/mailname
+  ansible.builtin.shell: hostname --fqdn > /etc/mailname
 
 - name: Restart Postfix
-  service:
+  ansible.builtin.service:
     name: postfix
     state: restarted
     enabled: yes
@@ -27,7 +27,7 @@
     src: 192.168.69.0/24
 
 - name: "Install postfix exporter"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -48,7 +48,7 @@
     append: yes
 
 - name: Enable and restart exporter daemon
-  service:
+  ansible.builtin.service:
     name: prometheus-postfix-exporter
     state: restarted
     enabled: yes

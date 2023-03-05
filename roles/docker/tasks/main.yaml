@@ -1,6 +1,6 @@
 ---
 - name: "Install Docker via apt"
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
     state: present
     name:
@@ -8,7 +8,7 @@
      - docker-compose
 
 - name: Disable userland proxy
-  copy:
+  ansible.builtin.copy:
     src: daemon.json
     dest: /etc/docker/daemon.json
     mode: 644
@@ -16,7 +16,7 @@
     group: backup
 
 - name: Enable and restart Docker daemon
-  service:
+  ansible.builtin.service:
     name: docker
     state: restarted
     enabled: yes
