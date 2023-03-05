@@ -26,6 +26,7 @@ steps:
   environment:
     ANSIBLE_HOST_KEY_CHECKING: "False"
     ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
+    ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
     ARTIFACTORY_APT_PASSWORD:
       from_secret: ARTIFACTORY_APT_PASSWORD
   settings:
@@ -39,6 +40,7 @@ steps:
   environment:
     ANSIBLE_HOST_KEY_CHECKING: "False"
     ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
+    ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
     ARTIFACTORY_APT_PASSWORD:
       from_secret: ARTIFACTORY_APT_PASSWORD
   settings:
