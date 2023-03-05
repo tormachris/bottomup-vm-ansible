@@ -5,6 +5,8 @@
     state: present
     name:
      - nginx
+     - python3-certbot
+     - python3-certbot-nginx
 
 - name: Copy default nginx config
   ansible.builtin.copy:
