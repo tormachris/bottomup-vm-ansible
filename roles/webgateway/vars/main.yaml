@@ -1,19 +1,19 @@
 proxy:
-  - {domain: bitwarden.tormakristof.eu, ip: bitwarden.intra.tormakris.dev, bigrequests: false}
-  - {domain: nextcloud.tormakristof.eu, ip: nextcloud.intra.tormakris.dev, bigrequests: true}
-  - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev, bigrequests: false}
-  - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev, bigrequests: false}
-  - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev, bigrequests: false}
-  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true}
-  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true}
-  - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
-  - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true}
-  - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
-  - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false}
-  - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false}
-  - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: false}
-  - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true}
-  - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true}
+  - {domain: bitwarden.tormakristof.eu, ip: bitwarden.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: nextcloud.tormakristof.eu, ip: nextcloud.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: drone.kmlabz.com, ip: drone.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: git.kmlabz.com, ip: git.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: guacamole.tormakristof.eu, ip: guacamole.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: matrix.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: chat.tormakristof.eu, ip: matrix.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false, ignorecert: true}
+  - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false, ignorecert: true}
+  - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true, ignorecert: false}
 
 static:
   []
