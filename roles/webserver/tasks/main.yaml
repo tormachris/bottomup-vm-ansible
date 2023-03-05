@@ -37,6 +37,9 @@
   ansible.builtin.template:
     src: cf-creds.ini
     dest: /root/cf-creds.ini
+    owner: root
+    group: root
+    mode: 0600
 
 - name: Generate certificate for all server instances
   ansible.builtin.command:
