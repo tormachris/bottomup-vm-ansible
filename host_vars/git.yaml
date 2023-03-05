@@ -12,4 +12,9 @@ firewall:
   - port: "2222"
     proto: tcp
     interface: "eth0"
+webserver:
+  - domain: "git.kmlabz.com"
+    port: 8080
+    bigrequests: false
+    https: false
 ...

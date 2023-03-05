@@ -1,3 +1,8 @@
 ---
 ansible_host: guacamole.intra.tormakris.dev
+webserver:
+  - domain: "guacamole.tormakristof.eu"
+    port: 8080
+    bigrequests: false
+    https: false
 ...
