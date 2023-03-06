@@ -5,6 +5,10 @@ webserver:
     port: 8080
     bigrequests: true
     https: false
+    additionallocations:
+    - location: /slack
+      https: false
+      port: 8432
   - domain: "chat.tormakristof.eu"
     port: 8181
     bigrequests: true
