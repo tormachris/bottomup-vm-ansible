@@ -1,4 +1,4 @@
-ARGS="-nginx.scrape-uri http://127.0.0.1:8888/stub_status"
+ARGS="-nginx.scrape-uri http://127.0.0.1:8080/stub_status"
 
 # Prometheus-nginx-exporter supports the following options:
 #  -nginx.plus
