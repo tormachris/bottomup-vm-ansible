@@ -6,13 +6,6 @@
     - webserver
     - internalsmtp
 
-- name: "Setup neko"
-  hosts: neko
-  roles:
-    - neko
-    - customfirewall
-    - internalsmtp
-
 - name: "Deploy smtpgateway to smtp.intra.tormakris.dev"
   hosts: smtp
   roles:
