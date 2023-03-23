@@ -14,6 +14,7 @@ proxy:
   - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: false, ignorecert: false}
   - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true, ignorecert: false}
+  - {domain: plex.tormakristof.eu, ip: plex.intra.tormakris.dev, bigrequests: true, ignorecert: false}
 
 static:
   []
