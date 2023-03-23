@@ -1,0 +1,8 @@
+---
+ansible_host: plex.intra.tormakris.dev
+webserver:
+  - domain: "plex.tormakristof.eu"
+    port: 8080
+    bigrequests: true
+    https: false
+...
