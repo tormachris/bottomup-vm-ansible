@@ -29,7 +29,7 @@ network:
       gateway4: {{interface.gateway4}}
 {% endif %}
 {% if interface.gateway6 is defined and interface.gateway6|length > 0  %}
-      gateway6: {{interface.gateway6}}
+      gateway6: '{{interface.gateway6}}'
 {% endif %}
 {% if interface.denydns %}
       nameservers:
