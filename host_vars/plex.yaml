@@ -6,6 +6,7 @@ webserver:
     bigrequests: true
     https: false
 netplan:
+  default_gateway: "192.168.69.254"
   additionalinterfaces:
     - name: "eth1"
       dhcp4: false
