@@ -13,6 +13,6 @@ netplan:
       dhcp6: false
       denydns: true
       addresses:
-        - '2001:738:2001:207f:0:211:211:0/64'
+        - '2001:738:2001:207f:0:211:211:31/64'
       gateway6: 'fe80::'
 ...
