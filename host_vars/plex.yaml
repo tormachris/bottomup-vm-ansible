@@ -5,4 +5,13 @@ webserver:
     port: 8080
     bigrequests: true
     https: false
+netplan:
+  additionalinterfaces:
+    - name: "eth1"
+      dhcp4: false
+      dhcp6: false
+      denydns: true
+      addresses:
+        - '2001:738:2001:207f:0:211:211:0/64'
+      gateway6: 'fe80::'
 ...

@@ -1,2 +1,3 @@
 .vault_password_file
 venv/
+.DS_Store

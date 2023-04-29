@@ -26,7 +26,6 @@ firewall:
     proto: tcp
     interface: "eth0"
 netplan:
-  default_gateway: ""
   additionalinterfaces:
     - name: "eth1"
       dhcp4: false
