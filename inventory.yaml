@@ -16,6 +16,7 @@ all:
         monitoring:
         ytmirror:
         mastodon:
+        projectzomboid:
     mckay:
       hosts:
         guacamole:
@@ -49,4 +50,7 @@ all:
         mastodon:
         librespeed:
         plex:
+    gameservers:
+      hosts:
+        projectzomboid:
 ...

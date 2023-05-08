@@ -75,4 +75,11 @@
     - openvpn
     - customfirewall
     - internalsmtp
+
+- name: "Deploy Game server"
+  hosts: gameservers
+  roles:
+    - netplan
+    - common
+    - internalsmtp
 ...
