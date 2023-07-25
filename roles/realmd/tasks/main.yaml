@@ -103,65 +103,8 @@
     line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
   when: checksudoers.found == 0
 
-- name: Remove misconfig from sshd
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
-
-- name: Remove old AllowUsers
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    regexp: "^AllowUsers tormakris ansible service-user"
-
-- name: Check if AllowUsers is defined
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    regexp: "intra.tormakris.dev"
-  check_mode: true
-  changed_when: false
-  register: checkallowusers
-
-- name: Define AllowUsers if undefined
-  ansible.builtin.lineinfile:
-    state: present
-    path: /etc/ssh/sshd_config
-    line: "AllowUsers tormakris@intra.tormakris.dev ansible@intra.tormakris.dev service-user@intra.tormakris.dev"
-  when: checkallowusers.found == 0
-
-- name: Create home for tormakris
-  ansible.builtin.command:
-    cmd: mkhomedir_helper tormakris@intra.tormakris.dev
-
-- name: Create home for tormakris
-  ansible.builtin.command:
-    cmd: rm -rf /home/tormakris@intra.tormakris.dev/tormakris
-
-- name: Copy tormakris home
-  ansible.builtin.copy:
-    src: /home/tormakris/
-    dest: /home/tormakris@intra.tormakris.dev/
-    remote_src: yes
-    owner: tormakris@intra.tormakris.dev
-    group: domain users@intra.tormakris.dev
-
-- name: Create home for ansible
-  ansible.builtin.command:
-    cmd: mkhomedir_helper ansible@intra.tormakris.dev
-
-- name: Copy ansible home
-  ansible.builtin.copy:
-    src: /home/ansible/
-    dest: /home/ansible@intra.tormakris.dev/
-    remote_src: yes
-    owner: tormakris@intra.tormakris.dev
-    group: domain users@intra.tormakris.dev
-
-- name: "Update authorized_keys of tormakris"
-  ansible.posix.authorized_key:
-    user: tormakris@intra.tormakris.dev
-    state: present
-    key: https://static.tormakristof.eu/ssh.keys
+- name: "Restart ssh"
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
 ...

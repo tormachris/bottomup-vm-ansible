@@ -14,6 +14,22 @@
     owner: ansible@intra.tormakris.dev
     group: ansible@intra.tormakris.dev
 
+- name: Check if group is presend in sudoers
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/sudoers
+    regexp: "^%linuxadmins"
+  check_mode: true
+  changed_when: false
+  register: checksudoers
+
+- name: Define group in sudoers
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/sudoers
+    line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
+  when: checksudoers.found == 0
+
 - name: "Update authorized_keys of tormakris"
   ansible.posix.authorized_key:
     user: tormakris@intra.tormakris.dev
