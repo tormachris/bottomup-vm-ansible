@@ -12,7 +12,8 @@
     dest: /etc/postfix/main.cf
 
 - name: Build /etc/mailname
-  ansible.builtin.shell: hostname --fqdn > /etc/mailname
+  ansible.builtin.shell:
+    cmd: "hostname --fqdn > /etc/mailname"
 
 - name: Restart Postfix
   ansible.builtin.service:
