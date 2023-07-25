@@ -13,42 +13,15 @@ steps:
     - echo "$PWD"
     - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
 
-- name: check ansible syntax
-  image: plugins/ansible:3
-  settings:
-    playbook: nightly.yaml
-    galaxy: requirements.yaml
-    inventory: inventory.yaml
-    syntax_check: true
-
-- name: run playbook in check mode
-  image: plugins/ansible:3
-  environment:
-    ANSIBLE_HOST_KEY_CHECKING: "False"
-    ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
-    ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
-    ARTIFACTORY_APT_PASSWORD:
-      from_secret: ARTIFACTORY_APT_PASSWORD
-    CLOUDFLARE_TOKEN:
-      from_secret: CLOUDFLARE_TOKEN
-  settings:
-    playbook: nightly.yaml
-    galaxy: requirements.yaml
-    inventory: inventory.yaml
-    check: true
-
 - name: ansible nightly run
-  image: plugins/ansible:3
+  image: alpinelinux/ansible
   environment:
     ANSIBLE_HOST_KEY_CHECKING: "False"
     ANSIBLE_PRIVATE_KEY_FILE: "/drone/src/id_rsa"
     ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
-    ARTIFACTORY_APT_PASSWORD:
-      from_secret: ARTIFACTORY_APT_PASSWORD
     CLOUDFLARE_TOKEN:
       from_secret: CLOUDFLARE_TOKEN
-  settings:
-    playbook: nightly.yaml
-    galaxy: requirements.yaml
-    inventory: inventory.yaml
+  commands:
+    - ansible-galaxy collection install -r requirements.yaml
+    - ansible-playbook -i inventory.yaml nightly.yaml
 ...

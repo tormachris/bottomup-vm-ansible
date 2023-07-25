@@ -1,0 +1,6 @@
+---
+- name: "Deploy basic webhost with Docker"
+  hosts: all
+  roles:
+    - realmd
+...

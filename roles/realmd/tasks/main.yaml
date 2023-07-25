@@ -1,0 +1,88 @@
+---
+- name: "Use custom Ubuntu mirror"
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list
+    regexp: 'https://tormakris.jfrog.io/artifactory/ubuntu-mirror'
+    replace: 'https://mirror.niif.hu'
+    backup: yes
+
+- name: "Use custom Ubuntu mirror"
+  ansible.builtin.replace:
+    path: /etc/apt/sources.list
+    regexp: 'http://hu.archive.ubuntu.com'
+    replace: 'https://mirror.niif.hu'
+    backup: yes
+
+- name: "Update machine"
+  ansible.builtin.apt:
+    update_cache: yes
+    upgrade: "yes"
+    autoclean: yes
+    autoremove: yes
+
+- name: "Install realmd and dependencies"
+  ansible.builtin.apt:
+    update_cache: yes
+    state: present
+    name:
+     - realmd
+     - sssd
+     - sssd-tools
+     - libnss-sss
+     - libpam-sss
+     - adcli
+     - samba-common-bin
+     - oddjob
+     - oddjob-mkhomedir
+     - packagekit
+
+- name: "Get join password from local environment variable"
+  ansible.builtin.set_fact:
+    join_passw: "{{ lookup('env', 'JOIN_PASSW') }}"
+  delegate_to: localhost
+
+- name: Join to AD with realmd
+  ansible.builtin.shell:
+    cmd: echo -e {{ join_passw }} | realm join -v -U Administrator intra.tormakris.dev
+
+- name: Enable pam homedir create on first logon
+  ansible.builtin.command:
+    cmd: pam-auth-update --enable mkhomedir
+
+- name: Check if ad_gpo_access_control is disabled
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/sssd/sssd.conf
+    regexp: "^ad_gpo_access_control"
+  check_mode: true
+  changed_when: false
+  register: checkadgpoac
+
+- name: Set ad_gpo_access_control to disabled
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/sssd/sssd.conf
+    line: "ad_gpo_access_control = disabled"
+  when: checkadgpoac.found == 0
+
+- name: Check if ad_access_filter is set
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/sssd/sssd.conf
+    regexp: "^ad_access_filter"
+  check_mode: true
+  changed_when: false
+  register: checkadaf
+
+- name: Set ad_gpo_access_control to disabled
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/sssd/sssd.conf
+    line: "ad_access_filter = memberOf=CN=LinuxUsers,OU=Service Groups,DC=intra,DC=tormakris,DC=dev"
+  when: checkadaf.found == 0
+
+- name: "Restart sssd"
+  ansible.builtin.service:
+    name: sssd
+    state: restarted
+...
