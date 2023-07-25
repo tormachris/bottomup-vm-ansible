@@ -99,9 +99,37 @@
 - name: Define group in sudoers
   ansible.builtin.lineinfile:
     state: present
-    path: /etc/ssh/sshd_config
+    path: /etc/sudoers
     line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
   when: checksudoers.found == 0
+
+- name: Remove misconfig from sshd
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
+
+- name: Remove old AllowUsers
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    regexp: "^AllowUsers tormakris ansible service-user"
+
+- name: Check if AllowUsers is defined
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/ssh/sshd_config
+    regexp: "intra.tormakris.dev"
+  check_mode: true
+  changed_when: false
+  register: checkallowusers
+
+- name: Define AllowUsers if undefined
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    line: "AllowUsers tormakris@intra.tormakris.dev ansible@intra.tormakris.dev service-user@intra.tormakris.dev"
+  when: checkallowusers.found == 0
 
 - name: Create home for tormakris
   ansible.builtin.command:
@@ -109,7 +137,7 @@
 
 - name: Remove home directory
   ansible.builtin.file:
-    path: /home/tormakris@intra.tormakris.dev/tormakris
+    path: /home/tormakris@intra.tormakris.dev/tormakris/
     state: absent
     recurse: yes
 
@@ -117,6 +145,18 @@
   ansible.builtin.copy:
     src: /home/tormakris/
     dest: /home/tormakris@intra.tormakris.dev/
+    remote_src: yes
+    owner: tormakris@intra.tormakris.dev
+    group: domain users@intra.tormakris.dev
+
+- name: Create home for ansible
+  ansible.builtin.command:
+    cmd: mkhomedir_helper ansible@intra.tormakris.dev
+
+- name: Copy ansible home
+  ansible.builtin.copy:
+    src: /home/ansible/
+    dest: /home/ansible@intra.tormakris.dev/
     remote_src: yes
     owner: tormakris@intra.tormakris.dev
     group: domain users@intra.tormakris.dev
