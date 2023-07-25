@@ -4,15 +4,6 @@ type: docker
 name: ansible
 
 steps:
-- name: setup environment
-  image: ubuntu
-  environment:
-    SSH_KEY:
-      from_secret: SSH_KEY
-  commands:
-    - echo "$PWD"
-    - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
-
 - name: ansible nightly run
   image: alpinelinux/ansible
   environment:
@@ -21,7 +12,10 @@ steps:
     ANSIBLE_CONFIG: "/drone/src/ansible.cfg"
     CLOUDFLARE_TOKEN:
       from_secret: CLOUDFLARE_TOKEN
+    SSH_KEY:
+      from_secret: SSH_KEY
   commands:
+    - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
     - ansible-galaxy collection install -r requirements.yaml
     - ansible-playbook -i inventory.yaml nightly.yaml
 ...
