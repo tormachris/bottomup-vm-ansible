@@ -4,7 +4,7 @@
     path: /home/ansible@intra.tormakris.dev/.ssh
     state: directory
     owner: ansible@intra.tormakris.dev
-    group: ansible@intra.tormakris.dev
+    group: domain users@intra.tormakris.dev
 
 - name: Copy authorized_keys
   ansible.builtin.copy:
@@ -12,9 +12,9 @@
     dest: /home/ansible@intra.tormakris.dev/.ssh/authorized_keys
     mode: 0600
     owner: ansible@intra.tormakris.dev
-    group: ansible@intra.tormakris.dev
+    group: domain users@intra.tormakris.dev
 
-- name: Check if group is presend in sudoers
+- name: Check if group is present in sudoers
   ansible.builtin.lineinfile:
     state: absent
     path: /etc/sudoers
