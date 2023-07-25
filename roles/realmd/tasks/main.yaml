@@ -44,7 +44,7 @@
 - name: Join to AD with realmd
   ansible.builtin.shell:
     cmd: echo {{ join_passw }} | realm join -v -U Administrator intra.tormakris.dev
-    ignore_errors: True
+  ignore_errors: True
 
 - name: Enable pam homedir create on first logon
   ansible.builtin.command:
