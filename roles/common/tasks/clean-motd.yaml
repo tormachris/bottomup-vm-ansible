@@ -3,7 +3,7 @@
   ansible.builtin.file:
     state: touch
     owner: tormakris@intra.tormakris.dev
-    group: tormakris@intra.tormakris.dev
+    group: domain users@intra.tormakris.dev
     mode: "0644"
     path: /home/tormakris@intra.tormakris.dev/.hushlogin
 ...
