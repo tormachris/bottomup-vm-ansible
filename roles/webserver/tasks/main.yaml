@@ -42,8 +42,7 @@
     mode: 0600
 
 - name: Generate certificate for all server instances
-  ansible.builtin.command:
-    cmd: certbot certonly --non-interactive --agree-tos -m iam@tormakristof.eu --dns-cloudflare --dns-cloudflare-credentials /root/cf-creds.ini -d {{item.domain}}
+  ansible.builtin.command: certbot certonly --non-interactive --agree-tos -m iam@tormakristof.eu --dns-cloudflare --dns-cloudflare-credentials /root/cf-creds.ini -d {{item.domain}}
   with_items: "{{ webserver }}"
 
 - name: "Generate certbot script"
