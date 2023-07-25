@@ -23,7 +23,7 @@
 
 - name: "Add service user to docker group"
   ansible.builtin.user:
-    name: service-user
+    name: service-user@intra.tormakris.dev
     comment: Service user
     groups: docker
     append: yes

@@ -85,4 +85,20 @@
   ansible.builtin.service:
     name: sssd
     state: restarted
+
+- name: Check if group is presend in sudoers
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/sudoers
+    regexp: "^%linuxadmins"
+  check_mode: true
+  changed_when: false
+  register: checksudoers
+
+- name: Define group in sudoers
+  ansible.builtin.lineinfile:
+    state: present
+    path: /etc/ssh/sshd_config
+    line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
+  when: checksudoers.found == 0
 ...

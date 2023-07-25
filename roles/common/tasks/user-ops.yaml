@@ -1,57 +1,22 @@
 ---
-- name: "Add service user"
-  ansible.builtin.user:
-    name: service-user
-    comment: Service user
-    shell: /bin/bash
-
-- name: "Add ansible user"
-  ansible.builtin.user:
-    name: ansible
-    comment: Ansible
-    shell: /bin/bash
-
-- name: "Add ansible user to sudo group"
-  ansible.builtin.user:
-    name: ansible
-    comment: Ansible
-    groups: sudo
-    append: yes
-
 - name: Create .ssh directory of root user
   ansible.builtin.file:
-    path: /home/ansible/.ssh
+    path: /home/ansible@intra.tormakris.dev/.ssh
     state: directory
-    owner: ansible
-    group: ansible
+    owner: ansible@intra.tormakris.dev
+    group: ansible@intra.tormakris.dev
 
 - name: Copy authorized_keys
   ansible.builtin.copy:
     src: authorized_keys
-    dest: /home/ansible/.ssh/authorized_keys
+    dest: /home/ansible@intra.tormakris.dev/.ssh/authorized_keys
     mode: 0600
-    owner: ansible
-    group: ansible
-
-- name: Check if ansible is already nopasswd in sudoers
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/sudoers
-    regexp: "^ansible"
-  check_mode: true
-  changed_when: false
-  register: checkallowusers
-
-- name: Define ansible nopasswd in sudoers
-  ansible.builtin.lineinfile:
-    state: present
-    path: /etc/sudoers
-    line: "ansible ALL=(ALL:ALL) NOPASSWD:ALL"
-  when: checkallowusers.found == 0
+    owner: ansible@intra.tormakris.dev
+    group: ansible@intra.tormakris.dev
 
 - name: "Update authorized_keys of tormakris"
   ansible.posix.authorized_key:
-    user: tormakris
+    user: tormakris@intra.tormakris.dev
     state: present
     key: https://static.tormakristof.eu/ssh.keys
 ...

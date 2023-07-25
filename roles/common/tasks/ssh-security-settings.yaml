@@ -27,7 +27,7 @@
   ansible.builtin.lineinfile:
     state: absent
     path: /etc/ssh/sshd_config
-    regexp: "^AllowUsers"
+    regexp: "intra.tormakris.dev"
   check_mode: true
   changed_when: false
   register: checkallowusers
@@ -36,7 +36,7 @@
   ansible.builtin.lineinfile:
     state: present
     path: /etc/ssh/sshd_config
-    line: "AllowUsers tormakris ansible service-user"
+    line: "AllowUsers tormakris@intra.tormakris.dev ansible@intra.tormakris.dev service-user@intra.tormakris.dev"
   when: checkallowusers.found == 0
 
 - name: "Restart sshd"
