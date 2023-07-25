@@ -135,11 +135,9 @@
   ansible.builtin.command:
     cmd: mkhomedir_helper tormakris@intra.tormakris.dev
 
-- name: Remove home directory
-  ansible.builtin.file:
-    path: /home/tormakris@intra.tormakris.dev/tormakris/
-    state: absent
-    recurse: yes
+- name: Create home for tormakris
+  ansible.builtin.command:
+    cmd: rm -rf /home/tormakris@intra.tormakris.dev/tormakris
 
 - name: Copy tormakris home
   ansible.builtin.copy:
