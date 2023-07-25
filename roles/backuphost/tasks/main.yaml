@@ -1,43 +1,10 @@
+# TODO: Make backup user part of AD
 ---
 - name: "Add backup user"
   ansible.builtin.user:
     name: backup
     comment: Backup user
     shell: /bin/bash
-
-- name: "Dsiable service user"
-  ansible.builtin.user:
-    name: service-user
-    state: present
-    password_lock: true
-    shell: "/sbin/nologin"
-
-- name: Undefine AllowUsers
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    line: "AllowUsers tormakris ansible service-user"
-
-- name: Check if AllowUsers is defined
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    regexp: "^AllowUsers"
-  check_mode: true
-  changed_when: false
-  register: checkallowusers
-
-- name: Define AllowUsers if undefined
-  ansible.builtin.lineinfile:
-    state: present
-    path: /etc/ssh/sshd_config
-    line: "AllowUsers tormakris ansible backup"
-  when: checkallowusers.found == 0
-
-- name: "Restart sshd"
-  ansible.builtin.service:
-    name: sshd
-    state: restarted
 
 - name: Create .ssh directory of backup user
   ansible.builtin.file:

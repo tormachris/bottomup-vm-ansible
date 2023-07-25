@@ -1,25 +1,4 @@
 ---
-- name: "Use custom Ubuntu mirror"
-  ansible.builtin.replace:
-    path: /etc/apt/sources.list
-    regexp: 'https://tormakris.jfrog.io/artifactory/ubuntu-mirror'
-    replace: 'https://mirror.niif.hu'
-    backup: yes
-
-- name: "Use custom Ubuntu mirror"
-  ansible.builtin.replace:
-    path: /etc/apt/sources.list
-    regexp: 'http://hu.archive.ubuntu.com'
-    replace: 'https://mirror.niif.hu'
-    backup: yes
-
-- name: "Update machine"
-  ansible.builtin.apt:
-    update_cache: yes
-    upgrade: "yes"
-    autoclean: yes
-    autoremove: yes
-
 - name: "Install realmd and dependencies"
   ansible.builtin.apt:
     update_cache: yes
@@ -36,15 +15,25 @@
      - oddjob-mkhomedir
      - packagekit
 
+- name: Check if computer is joined to domain
+  ansible.builtin.lineinfile:
+    state: absent
+    path: /etc/sssd/sssd.conf
+    line: "^ad_access_filter"
+  check_mode: true
+  changed_when: false
+  register: checkjoined
+
 - name: "Get join password from local environment variable"
   ansible.builtin.set_fact:
     join_passw: "{{ lookup('env', 'JOIN_PASSW') }}"
   delegate_to: localhost
+  when: checkjoined.found == 0
 
 - name: Join to AD with realmd
   ansible.builtin.shell:
     cmd: echo {{ join_passw }} | realm join -v -U Administrator intra.tormakris.dev
-  ignore_errors: True
+  when: checkjoined.found == 0
 
 - name: Enable pam homedir create on first logon
   ansible.builtin.command:
@@ -102,9 +91,4 @@
     path: /etc/sudoers
     line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"
   when: checksudoers.found == 0
-
-- name: "Restart ssh"
-  ansible.builtin.service:
-    name: sshd
-    state: restarted
 ...

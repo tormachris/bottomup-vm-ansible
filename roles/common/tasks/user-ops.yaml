@@ -1,5 +1,5 @@
 ---
-- name: Create .ssh directory of root user
+- name: Create .ssh directory of ansible user
   ansible.builtin.file:
     path: /home/ansible@intra.tormakris.dev/.ssh
     state: directory

@@ -1,10 +1,4 @@
 ---
-- name: Disable password authentication
-  ansible.builtin.replace:
-    path: /etc/ssh/sshd_config
-    regexp: 'PasswordAuthentication yes'
-    replace: 'PasswordAuthentication no'
-
 - name: Disable root authentication
   ansible.builtin.replace:
     path: /etc/ssh/sshd_config
@@ -22,22 +16,6 @@
     path: /etc/ssh/sshd_config
     regexp: '#AddressFamily any'
     replace: 'AddressFamily inet'
-
-- name: Check if AllowUsers is defined
-  ansible.builtin.lineinfile:
-    state: absent
-    path: /etc/ssh/sshd_config
-    regexp: "intra.tormakris.dev"
-  check_mode: true
-  changed_when: false
-  register: checkallowusers
-
-- name: Define AllowUsers if undefined
-  ansible.builtin.lineinfile:
-    state: present
-    path: /etc/ssh/sshd_config
-    line: "AllowUsers tormakris@intra.tormakris.dev ansible@intra.tormakris.dev service-user@intra.tormakris.dev"
-  when: checkallowusers.found == 0
 
 - name: "Restart sshd"
   ansible.builtin.service:
