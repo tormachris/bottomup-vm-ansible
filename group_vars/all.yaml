@@ -1,4 +1,4 @@
 ---
 ansible_become: true
-ansible_user: ansible
+ansible_user: ansible@intra.tormakris.dev
 ...
