@@ -1,0 +1,8 @@
+---
+ansible_host: vikunja.intra.tormakris.dev
+webserver:
+  - domain: "vikunja.tormakristof.eu"
+    port: 8080
+    bigrequests: false
+    https: false
+...

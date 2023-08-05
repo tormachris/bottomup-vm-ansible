@@ -25,6 +25,7 @@ all:
         backup:
         librespeed:
         plex:
+        vikunja:
     dockerwebhosts:
       hosts:
         matrix:
@@ -38,6 +39,7 @@ all:
         mastodon:
         librespeed:
         plex:
+        vikunja:
     nightlydocker:
       hosts:
         matrix:
@@ -50,6 +52,7 @@ all:
         mastodon:
         librespeed:
         plex:
+        vikunja:
     gameservers:
       hosts:
         projectzomboid:
