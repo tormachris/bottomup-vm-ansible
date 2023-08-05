@@ -32,7 +32,7 @@
 
 - name: Join to AD with realmd
   ansible.builtin.shell:
-    cmd: echo {{ join_passw }} | realm join -v -U Administrator intra.tormakris.dev
+    cmd: echo {{ join_passw }} | realm join -v -U tormakris_admin intra.tormakris.dev
   when: checkjoined.found == 0
 
 - name: Enable pam homedir create on first logon
