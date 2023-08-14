@@ -6,7 +6,7 @@ webserver:
     bigrequests: false
     https: false
     additionallocations:
-      - https: true
+      - https: false
         port: 8080
         location: '~* ^/(api|dav|\.well-known)/'
 ...
