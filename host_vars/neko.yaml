@@ -6,35 +6,23 @@ firewall:
     interface: "eth0"
   - port: "http"
     proto: tcp
-    interface: "eth1"
+    interface: "eth0"
   - port: "https"
     proto: tcp
-    interface: "eth1"
-  - port: "59000:59049"
+    interface: "eth0"
+  - port: "59000:59009"
     proto: udp
-    interface: "eth1"
+    interface: "eth0"
   - port: "3478"
     proto: tcp
-    interface: "eth1"
+    interface: "eth0"
   - port: "3478"
     proto: any
-    interface: "eth1"
+    interface: "eth0"
   - port: "5349"
     proto: any
-    interface: "eth1"
+    interface: "eth0"
   - port: "9101"
     proto: tcp
     interface: "eth0"
-netplan:
-  default_gateway: ""
-  additionalinterfaces:
-    - name: "eth1"
-      dhcp4: false
-      dhcp6: false
-      denydns: true
-      addresses:
-        - '152.66.211.42/24'
-        - '2001:738:2001:207f:0:211:42:0/64'
-      gateway4: '152.66.211.254'
-      gateway6: 'fe80::'
 ...

@@ -1,5 +1,0 @@
-#! /bin/bash
-systemctl stop haproxy
-certbot renew --standalone --cert-name neko.tormakristof.eu
-certbot renew --standalone --cert-name turn.tormakristof.eu
-systemctl start haproxy

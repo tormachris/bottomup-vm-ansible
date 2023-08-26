@@ -40,7 +40,6 @@
   roles:
     - common
     - docker
-    - neko
     - customfirewall
     - internalsmtp
 
