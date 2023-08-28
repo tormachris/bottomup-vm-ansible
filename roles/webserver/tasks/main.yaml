@@ -3,7 +3,7 @@
   community.general.ufw:
     rule: allow
     port: https
-    src: {{ item }}
+    src: "{{ item }}"
   with_items: "{{ webgw_allowedranges }}"
 
 - name: "Install Nginx via apt"
