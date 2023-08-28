@@ -4,7 +4,7 @@
     rule: allow
     port: https
     src: "{{ item }}"
-  with_items: "{{ webgw_allowedranges }}"
+  with_items: "{{ allowedranges }}"
 
 - name: "Install Nginx via apt"
   ansible.builtin.apt:
