@@ -15,7 +15,8 @@ steps:
     SSH_KEY:
       from_secret: SSH_KEY
   commands:
-    - echo "$SSH_KEY" > $PWD/id_rsa && chmod 0600 $PWD/id_rsa
+    - echo "$SSH_KEY" > $PWD/id_rsa
+    - chmod 0600 $PWD/id_rsa
     - ansible-galaxy collection install -r requirements.yaml
     - ansible-playbook -i inventory.yaml nightly.yaml
 

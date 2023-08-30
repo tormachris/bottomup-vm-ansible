@@ -15,7 +15,6 @@ all:
         postgres:
         monitoring:
         ytmirror:
-        mastodon:
     mckay:
       hosts:
         guacamole:
@@ -34,7 +33,6 @@ all:
         nextcloud:
         monitoring:
         ytmirror:
-        mastodon:
         librespeed:
         plex:
     nightlydocker:
@@ -46,7 +44,6 @@ all:
         nextcloud:
         monitoring:
         ytmirror:
-        mastodon:
         librespeed:
         plex:
     gameservers:
