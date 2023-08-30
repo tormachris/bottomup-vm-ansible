@@ -1,6 +1,6 @@
 ---
 - name: "Generate backupscript"
-  ansible.builtin.template:
+  template:
     src: backupscript.sh
     dest: /etc/cron.weekly/backupscript
     owner: root
@@ -8,12 +8,12 @@
     mode: '0700'
 
 - name: Create .ssh directory of root user
-  ansible.builtin.file:
+  file:
     path: /root/.ssh
     state: directory
 
 - name: Copy ssh config
-  ansible.builtin.copy:
+  copy:
     src: ssh_config
     dest: /root/.ssh/config
     mode: 0600

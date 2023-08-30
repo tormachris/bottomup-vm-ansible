@@ -7,7 +7,7 @@
   with_items: "{{ allowedranges }}"
 
 - name: "Install Nginx via apt"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
@@ -16,7 +16,7 @@
      - python3-certbot-dns-cloudflare
 
 - name: Copy default nginx config
-  ansible.builtin.copy:
+  copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
     owner: root
@@ -24,18 +24,18 @@
     mode: '0644'
 
 - name: Enable and restart nginx daemon
-  ansible.builtin.service:
+  service:
     name: nginx
     state: restarted
     enabled: yes
 
 - name: "Get Cloudflare token from local environment variable"
-  ansible.builtin.set_fact:
+  set_fact:
     cloudflare_token: "{{ lookup('env', 'CLOUDFLARE_TOKEN') }}"
   delegate_to: localhost
 
 - name: "Render Cloudflare Certbot plugin configuration"
-  ansible.builtin.template:
+  template:
     src: cf-creds.ini
     dest: /root/cf-creds.ini
     owner: root
@@ -43,12 +43,12 @@
     mode: 0600
 
 - name: Generate certificate for all server instances
-  ansible.builtin.shell:
+  shell:
     cmd: certbot certonly --non-interactive --agree-tos -m iam@tormakristof.eu --dns-cloudflare --dns-cloudflare-credentials /root/cf-creds.ini -d {{item.domain}}
   with_items: "{{ webserver }}"
 
 - name: "Generate certbot script"
-  ansible.builtin.template:
+  template:
     src: certbot.sh
     dest: /etc/cron.weekly/certbot
     owner: root
@@ -56,7 +56,7 @@
     mode: '0700'
 
 - name: "Generate nginx configuration"
-  ansible.builtin.template:
+  template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
     owner: root
@@ -64,12 +64,12 @@
     mode: '0644'
 
 - name: Reload nginx daemon
-  ansible.builtin.service:
+  service:
     name: nginx
     state: reloaded
 
 - name: "Install nginx exporter"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
@@ -83,7 +83,7 @@
     src: 192.168.69.0/24
 
 - name: Copy nginx exporter config
-  ansible.builtin.copy:
+  copy:
     src: prometheus-nginx-exporter
     dest: /etc/default/prometheus-nginx-exporter
     owner: root
@@ -91,7 +91,7 @@
     mode: '0644'
 
 - name: Enable and restart exporter daemon
-  ansible.builtin.service:
+  service:
     name: prometheus-nginx-exporter
     state: restarted
     enabled: yes

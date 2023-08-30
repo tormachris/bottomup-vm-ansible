@@ -1,18 +1,18 @@
 # TODO: Make backup user part of AD
 ---
 - name: "Add backup user"
-  ansible.builtin.user:
+  user:
     name: backup
     comment: Backup user
     shell: /bin/bash
 
 - name: Create .ssh directory of backup user
-  ansible.builtin.file:
+  file:
     path: /home/backup/.ssh
     state: directory
 
 - name: Copy authorized_keys
-  ansible.builtin.copy:
+  copy:
     src: authorized_keys
     dest: /home/backup/.ssh/authorized_keys
     mode: 0600
@@ -20,7 +20,7 @@
     group: backup
 
 - name: Copy ssh config
-  ansible.builtin.copy:
+  copy:
     src: ssh_config
     dest: /home/backup/.ssh/config
     mode: 0600

@@ -1,26 +1,26 @@
 ---
 - name: "Use custom Ubuntu mirror"
-  ansible.builtin.replace:
+  replace:
     path: /etc/apt/sources.list
     regexp: 'http://hu.archive.ubuntu.com'
     replace: 'https://mirror.niif.hu'
     backup: yes
 
 - name: "Remove Ubuntu bloatware"
-  ansible.builtin.apt: 
+  apt: 
     state: absent
     name: ubutu-server
     autoremove: yes
 
 - name: "Update machine"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     upgrade: "yes"
     autoclean: yes
     autoremove: yes
 
 - name: "Install my favourite applications"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:

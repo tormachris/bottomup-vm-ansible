@@ -1,6 +1,6 @@
 ---
 - name: "Install Docker via apt"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
@@ -8,7 +8,7 @@
      - docker-compose
 
 - name: Disable userland proxy
-  ansible.builtin.copy:
+  copy:
     src: daemon.json
     dest: /etc/docker/daemon.json
     mode: 644
@@ -16,13 +16,13 @@
     group: backup
 
 - name: Enable and restart Docker daemon
-  ansible.builtin.service:
+  service:
     name: docker
     state: restarted
     enabled: yes
 
 - name: "Add service user to docker group"
-  ansible.builtin.user:
+  user:
     name: service-user@intra.tormakris.dev
     groups: docker
     append: yes

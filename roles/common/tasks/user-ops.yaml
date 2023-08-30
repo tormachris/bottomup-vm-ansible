@@ -1,13 +1,13 @@
 ---
 - name: Create .ssh directory of ansible user
-  ansible.builtin.file:
+  file:
     path: /home/ansible@intra.tormakris.dev/.ssh
     state: directory
     owner: ansible@intra.tormakris.dev
     group: domain users@intra.tormakris.dev
 
 - name: Copy authorized_keys
-  ansible.builtin.copy:
+  copy:
     src: authorized_keys
     dest: /home/ansible@intra.tormakris.dev/.ssh/authorized_keys
     mode: 0600
@@ -15,7 +15,7 @@
     group: domain users@intra.tormakris.dev
 
 - name: Check if group is present in sudoers
-  ansible.builtin.lineinfile:
+  lineinfile:
     state: absent
     path: /etc/sudoers
     regexp: "^%linuxadmins"
@@ -24,7 +24,7 @@
   register: checksudoers
 
 - name: Define group in sudoers
-  ansible.builtin.lineinfile:
+  lineinfile:
     state: present
     path: /etc/sudoers
     line: "%linuxadmins@intra.tormakris.dev ALL=(ALL) NOPASSWD: ALL"

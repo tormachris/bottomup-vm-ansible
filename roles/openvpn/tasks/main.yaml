@@ -1,6 +1,6 @@
 ---
 - name: "Install openvpn-server via apt"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
@@ -15,13 +15,13 @@
     reload: yes
 
 - name: Enable and restart openvpn daemon
-  ansible.builtin.service:
+  service:
     name: openvpn-server@stargate
     state: restarted
     enabled: yes
 
 - name: Check if AllowUsers is defined
-  ansible.builtin.lineinfile:
+  lineinfile:
     state: absent
     path: /etc/ufw/before.rules
     regexp: "^# START OPENVPN"
@@ -30,7 +30,7 @@
   register: checkufwrules
 
 - name: Insert openvpn iptables rules
-  ansible.builtin.blockinfile:
+  blockinfile:
     path: /etc/ufw/before.rules
     block: |
       # START OPENVPN RULES

@@ -1,22 +1,22 @@
 ---
 - name: "Install Postfix via apt"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
      - postfix
 
 - name: Install Postfix mail gateway config
-  ansible.builtin.template:
+  template:
     src: templates/main.cf
     dest: /etc/postfix/main.cf
 
 - name: Build /etc/mailname
-  ansible.builtin.shell:
+  shell:
     cmd: "hostname --fqdn > /etc/mailname"
 
 - name: Restart Postfix
-  ansible.builtin.service:
+  service:
     name: postfix
     state: restarted
     enabled: yes
@@ -28,14 +28,14 @@
     src: 192.168.69.0/24
 
 - name: "Install postfix exporter"
-  ansible.builtin.apt:
+  apt:
     update_cache: yes
     state: present
     name:
      - prometheus-postfix-exporter
 
 - name: Copy exporter config
-  ansible.builtin.copy:
+  copy:
     src: prometheus-postfix-exporter
     dest: /etc/default/prometheus-postfix-exporter
     owner: root
@@ -43,13 +43,13 @@
     mode: '0644'
 
 - name: Add the prometheus user to postdrop group
-  ansible.builtin.user:
+  user:
     name: prometheus
     groups: postdrop
     append: yes
 
 - name: Enable and restart exporter daemon
-  ansible.builtin.service:
+  service:
     name: prometheus-postfix-exporter
     state: restarted
     enabled: yes

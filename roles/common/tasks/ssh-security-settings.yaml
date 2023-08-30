@@ -1,24 +1,24 @@
 ---
 - name: Disable root authentication
-  ansible.builtin.replace:
+  replace:
     path: /etc/ssh/sshd_config
     regexp: '#PermitRootLogin prohibit-password'
     replace: 'PermitRootLogin no'
 
 - name: Disable X11 forwarding
-  ansible.builtin.replace:
+  replace:
     path: /etc/ssh/sshd_config
     regexp: 'X11Forwarding yes'
     replace: 'X11Forwarding no'
 
 - name: Explicitly only listen on ipv4
-  ansible.builtin.replace:
+  replace:
     path: /etc/ssh/sshd_config
     regexp: '#AddressFamily any'
     replace: 'AddressFamily inet'
 
 - name: "Restart sshd"
-  ansible.builtin.service:
+  service:
     name: sshd
     state: restarted
 ...
