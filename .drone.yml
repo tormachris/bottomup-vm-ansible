@@ -19,10 +19,4 @@ steps:
     - chmod 0600 $PWD/id_rsa
     - ansible-galaxy collection install -r requirements.yaml
     - ansible-playbook -i inventory.yaml nightly.yaml
-
-- name: notify
-  image: drillster/drone-email
-  settings:
-    host: smtp.intra.tormakris.dev
-    from: drone@tormakris.dev
 ...
