@@ -3,7 +3,14 @@
   replace:
     path: /etc/apt/sources.list
     regexp: 'http://hu.archive.ubuntu.com'
-    replace: 'https://mirror.niif.hu'
+    replace: 'https://mirrors.sth.sze.hu'
+    backup: yes
+
+- name: "Replace old mirror"
+  replace:
+    path: /etc/apt/sources.list
+    regexp: 'mirror.niif.hu'
+    replace: 'mirrors.sth.sze.hu'
     backup: yes
 
 - name: "Remove Ubuntu bloatware"
