@@ -6,9 +6,9 @@ network:
     {{ ansible_default_ipv4.interface }}:
       dhcp4: true
       dhcp-identifier: mac
+{% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       dhcp4-overrides:
         use-routes: false
-{% if netplan.default_gateway is defined and netplan.default_gateway|length > 0 %}
       gateway4: {{netplan.default_gateway}}
 {% endif %}
 {% if netplan.additionalinterfaces is defined and netplan.additionalinterfaces|length > 0 %}
