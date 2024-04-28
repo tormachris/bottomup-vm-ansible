@@ -1,0 +1,8 @@
+---
+ansible_host: unbound.intra.tormakris.dev
+webserver:
+  - domain: "dns.tormakristof.eu"
+    port: 8080
+    bigrequests: true
+    https: true
+...

@@ -16,6 +16,7 @@ proxy:
   - {domain: plex.tormakristof.eu, ip: plex.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: neko.tormakristof.eu, ip: vzelenka.intra.tormakris.dev, bigrequests: false, ignorecert: false}
   - {domain: cloudlog.tormakristof.eu, ip: cloudlog.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: dns.tormakristof.eu, ip: unbound.intra.tormakris.dev, bigrequests: true, ignorecert: false}
 
 static:
   []
