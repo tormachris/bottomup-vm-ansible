@@ -1,6 +1,7 @@
 ---
 ansible_become: true
 ansible_user: ansible@intra.tormakris.dev
+#ansible_user: ansible
 allowedranges:
   - 192.168.69.0/24
   - 192.168.1.0/24

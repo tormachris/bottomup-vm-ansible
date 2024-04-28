@@ -9,14 +9,13 @@ proxy:
   - {domain: nexus.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: registry.kmlabz.com, ip: nexus.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false, ignorecert: true}
-  - {domain: enterpriseregistration.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false, ignorecert: true}
   - {domain: certauth.fs.tormakristof.eu, ip: adfs.intra.tormakris.dev, bigrequests: false, ignorecert: true}
   - {domain: grafana.tormakristof.eu, ip: monitoring.intra.tormakris.dev, bigrequests: false, ignorecert: false}
   - {domain: yt.tormakristof.eu, ip: ytmirror.intra.tormakris.dev, bigrequests: false, ignorecert: false}
-  - {domain: mastodon.tormakristof.eu, ip: mastodon.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: speedtest.tormakristof.eu, ip: librespeed.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: plex.tormakristof.eu, ip: plex.intra.tormakris.dev, bigrequests: true, ignorecert: false}
   - {domain: neko.tormakristof.eu, ip: vzelenka.intra.tormakris.dev, bigrequests: false, ignorecert: false}
+  - {domain: cloudlog.tormakristof.eu, ip: cloudlog.intra.tormakris.dev, bigrequests: false, ignorecert: false}
 
 static:
   []
